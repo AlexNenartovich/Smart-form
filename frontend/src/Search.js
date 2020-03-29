@@ -17,8 +17,11 @@ class Search extends Component {
         })
     }
 
-    print = () => {
-        console.log(this.state.val);
+    handleSearch = () => {
+        this.props.history.push({
+            pathname: "/searchres",
+            search: this.state.val
+        });
     }
     render() {
         return (
@@ -32,7 +35,7 @@ class Search extends Component {
                     <SearchBar
                         value={this.state.val}
                         onChange={(value) => {this.setState({val: value})}}
-                        onRequestSearch={() => this.print()}
+                        onRequestSearch={() => this.handleSearch()}
                         style={{margin: '0 auto', maxWidth: 800}}/>
                 </div>
             </Hero>

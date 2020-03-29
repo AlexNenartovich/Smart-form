@@ -12,7 +12,7 @@ import GroupIcon from "@material-ui/icons/Group";
 import { Link } from "react-router-dom";
 import Typography from "@material-ui/core/Typography";
 import CircularProgress from "@material-ui/core/CircularProgress";
-import {Hero} from "react-landing-page";
+import {CallToAction, Hero} from "react-landing-page";
 
 const useStyles = makeStyles(theme => ({
     table: {
@@ -87,6 +87,7 @@ export default function SimpleTable() {
                     <Table className={classes.table} aria-label="simple table">
                         <TableHead>
                             <TableRow>
+                                <TableCell align="center">Id</TableCell>
                                 <TableCell align="center">Name</TableCell>
                                 <TableCell align="center">Department</TableCell>
                                 <TableCell align="center">Gender</TableCell>
@@ -96,6 +97,7 @@ export default function SimpleTable() {
                         <TableBody>
                             {data?.map(row => (
                                 <TableRow key={row.name}>
+                                    <TableCell align="center">{row.id}</TableCell>
                                     <TableCell align="center">{row.name}</TableCell>
                                     <TableCell align="center">{row.department}</TableCell>
                                     <TableCell align="center">{row.gender}</TableCell>
