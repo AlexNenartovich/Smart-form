@@ -56,3 +56,31 @@ AddButton {
   padding-bottom: 100px;
 }
 
+.paper {
+  marginTop: "theme.spacing(7)";
+  display: flex;
+  flexDirection: column;
+  alignItems: center
+}
+
+.form {
+  width: 100%;
+  marginTop: "theme.spacing(3)"
+}
+.submit {
+  margin: "theme.spacing(3, 0, 2)"
+}
+.textField {
+  marginLeft: "theme.spacing(1)";
+  marginRight: "theme.spacing(1)";
+  width: 100%
+}
+
+.delete-button {
+  padding-left: 100px;
+  padding-right: 20px;
+}
+
+.mod-buttons {
+  display: flex;
+}

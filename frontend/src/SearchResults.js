@@ -14,6 +14,8 @@ import Typography from "@material-ui/core/Typography";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import {CallToAction, Hero} from "react-landing-page";
 import "./App.css";
+import UpdateEmployee from "./UpdateEmployee";
+import { Button } from '@material-ui/core';
 
 const useStyles = makeStyles(theme => ({
     table: {
@@ -51,6 +53,8 @@ export default function SearchResults(props) {
     const searchVal = props.location.search.substr(1);
     let isLoading = true;
     let empId;
+    let found = false;
+    let updateEmpInfo;
 
     async function load() {
         let response = await fetch("/api/employee");
@@ -58,19 +62,21 @@ export default function SearchResults(props) {
         upDateData(body);
     }
 
-    async function sampleFunc() {
-        let response = await fetch("/api/employee/" + empId, {
-            method: "DELETE", // *GET, POST, PUT, DELETE, etc.
-            mode: "cors", // no-cors, *cors, same-origin
-            cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
-            credentials: "same-origin", // include, *same-origin, omit
-            headers: {
-                "Content-Type": "application/json"
-                // 'Content-Type': 'application/x-www-form-urlencoded',
-            },
-            redirect: "follow", // manual, *follow, error
-            referrerPolicy: "no-referrer", // no-referrer, *client
-        });
+    async function deleteEmp() {
+        let resp = fetch("/api/employee/" + empId, {
+            method: 'delete'
+        })
+            .then(response => response.json());
+        if(resp !== null) {
+            load();
+        }
+        return resp;
+    }
+
+    function updateEmp() {
+        return (
+            <UpdateEmployee name="Sarah" />
+        )
     }
 
     if (firstLoad) {
@@ -115,6 +121,8 @@ export default function SearchResults(props) {
                                 {data?.map(row => {
                                     if (row.name === searchVal) {
                                         empId = row.id;
+                                        updateEmpInfo = row;
+                                        found = true;
                                         return (
                                         <TableRow key={row.name}>
                                             <TableCell align="center">{row.id}</TableCell>
@@ -134,7 +142,37 @@ export default function SearchResults(props) {
                         &#x2190; New search
                     </Typography>{" "}
                 </Link>
-                <CallToAction onClick={sampleFunc} mt={3}>Delete employee</CallToAction>
+                {found ? (
+                    <div className="mod-buttons">
+                        <div className="delete-button">
+                        <Button halfWidth
+                                variant="contained"
+                                color="primary"
+                                preventDefault
+                                onClick={deleteEmp} component={Link}
+                                to="/delete">Delete employee</Button>
+                    </div>
+                        <div>
+                        <Button component={Link}
+                                halfWidth
+                                variant="contained"
+                                color="primary"
+                                preventDefault
+                                to={{pathname: "/update",
+                                    state:
+                                        {name: updateEmpInfo.name,
+                                         department: updateEmpInfo.department,
+                                         gender: updateEmpInfo.gender}
+                                }}>Update employee information
+                        </Button>
+                        </div>
+                    </div>
+                ) : <div></div>
+                }
+                {!isLoading && !found ?(
+                    <h1>Your search did not produce any matches</h1>
+                ) : <div></div>
+                }
             </div>
         </Hero>
     );

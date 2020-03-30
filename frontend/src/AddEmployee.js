@@ -36,15 +36,6 @@ const useStyles = makeStyles(theme => ({
     }
 }));
 
-class insert {
-    constructor(name, department, gender, dob) {
-        this.name = name;
-        this.department = department;
-        this.gender = gender;
-        new Date(dob)
-    }
-}
-
 export default function AddEmployee() {
     const classes = useStyles();
     const [firstLoad, setLoad] = React.useState(true);
