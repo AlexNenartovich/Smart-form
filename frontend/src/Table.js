@@ -12,7 +12,7 @@ import GroupIcon from "@material-ui/icons/Group";
 import { Link } from "react-router-dom";
 import Typography from "@material-ui/core/Typography";
 import CircularProgress from "@material-ui/core/CircularProgress";
-import {CallToAction, Hero} from "react-landing-page";
+import { Hero} from "react-landing-page";
 
 const useStyles = makeStyles(theme => ({
     table: {

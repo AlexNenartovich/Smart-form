@@ -2,29 +2,28 @@ import React, { Component } from "react";
 import {Hero} from "react-landing-page";
 import Container from "@material-ui/core/Container/Container";
 import CssBaseline from "@material-ui/core/CssBaseline/CssBaseline";
-import Avatar from "@material-ui/core/Avatar/Avatar";
-import GroupIcon from "@material-ui/core/SvgIcon/SvgIcon";
-import Typography from "@material-ui/core/Typography/Typography";
 import Grid from "@material-ui/core/Grid/Grid";
 import TextField from "@material-ui/core/TextField/TextField";
 import Button from "@material-ui/core/Button/Button";
 import {Link} from "react-router-dom";
-import {makeStyles} from "@material-ui/core";
 import "./App.css"
 
 class UpdateEmployee extends Component {
     constructor() {
         super();
         this.state = {
+            id: "",
             name: "",
             department: "",
             gender: "",
             dob: ""
         }
+        this.deleteEmp = this.deleteEmp.bind(this);
     }
 
     componentDidMount() {
         this.setState({
+            id: this.props.location.state.id,
             name: this.props.location.state.name,
             department: this.props.location.state.department,
             gender: this.props.location.state.gender
@@ -49,8 +48,28 @@ class UpdateEmployee extends Component {
         })
     }
 
-    handleSubmit = () => {
-        console.log(this.state.name);
+    deleteEmp() {
+        let resp = fetch("/api/employee/" + this.state.id, {
+            method: 'delete'
+        })
+            .then(response => response.json());
+        return resp;
+    }
+
+    updateEmployee = () => {
+        fetch("/api/employee" , {
+            method: "PUT", // *GET, POST, PUT, DELETE, etc.
+            mode: "cors", // no-cors, *cors, same-origin
+            cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
+            credentials: "same-origin", // include, *same-origin, omit
+            headers: {
+                "Content-Type": "application/json"
+                // 'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            redirect: "follow", // manual, *follow, error
+            referrerPolicy: "no-referrer", // no-referrer, *client
+            body: JSON.stringify(this.state)
+        });
     }
 
     render() {
@@ -120,18 +139,6 @@ class UpdateEmployee extends Component {
                                     />
                                 </Grid>
                             </Grid>
-                            <Button
-                                // type="submit"
-                                fullWidth
-                                variant="contained"
-                                color="primary"
-                                preventDefault
-                                className="submit"
-                                onClick={this.handleSubmit}
-                            >
-                                Save
-                            </Button>
-
                             <Grid container justify="center">
                                 <Grid item>
                                     <Link to="/view">View Employee Records</Link>
@@ -140,6 +147,30 @@ class UpdateEmployee extends Component {
                         </form>
                     </div>
                 </Container>
+                <div className="mod-buttons">
+                    <div className="delete-button">
+                        <Button halfWidth
+                                variant="contained"
+                                color="secondary"
+                                preventDefault
+                                onClick={this.deleteEmp}
+                                component={Link}
+                                to="/delete">
+                            Delete employee
+                        </Button>
+                    </div>
+                    <div>
+                        <Button component={Link}
+                                halfWidth
+                                variant="contained"
+                                color="primary"
+                                onClick={this.updateEmployee}
+                                preventDefault
+                                to="/delete"
+                        >Update information
+                        </Button>
+                    </div>
+                </div>
             </Hero>
         )
     }

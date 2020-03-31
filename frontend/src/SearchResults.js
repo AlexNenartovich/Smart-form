@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import { Link } from 'react-router-dom';
 import { makeStyles } from "@material-ui/core/styles";
 import Table from "@material-ui/core/Table";
@@ -12,10 +12,8 @@ import Avatar from "@material-ui/core/Avatar";
 import GroupIcon from "@material-ui/icons/Group";
 import Typography from "@material-ui/core/Typography";
 import CircularProgress from "@material-ui/core/CircularProgress";
-import {CallToAction, Hero} from "react-landing-page";
+import { Hero } from "react-landing-page";
 import "./App.css";
-import UpdateEmployee from "./UpdateEmployee";
-import { Button } from '@material-ui/core';
 
 const useStyles = makeStyles(theme => ({
     table: {
@@ -52,7 +50,6 @@ export default function SearchResults(props) {
     const [firstLoad, setLoad] = React.useState(true);
     const searchVal = props.location.search.substr(1);
     let isLoading = true;
-    let empId;
     let found = false;
     let updateEmpInfo;
 
@@ -60,23 +57,6 @@ export default function SearchResults(props) {
         let response = await fetch("/api/employee");
         let body = await response.json();
         upDateData(body);
-    }
-
-    async function deleteEmp() {
-        let resp = fetch("/api/employee/" + empId, {
-            method: 'delete'
-        })
-            .then(response => response.json());
-        if(resp !== null) {
-            load();
-        }
-        return resp;
-    }
-
-    function updateEmp() {
-        return (
-            <UpdateEmployee name="Sarah" />
-        )
     }
 
     if (firstLoad) {
@@ -107,6 +87,10 @@ export default function SearchResults(props) {
                         style={{ width: "80%", margin: "0 10px" }}
                         component={Paper}
                     >
+                        {!isLoading && found}
+                            <h1 className="mod-header">Please Select Employee to Modify Data</h1>
+                         <div></div>
+
                         <Table className={classes.table} aria-label="simple table">
                             <TableHead>
                                 <TableRow>
@@ -120,11 +104,17 @@ export default function SearchResults(props) {
                             <TableBody>
                                 {data?.map(row => {
                                     if (row.name === searchVal) {
-                                        empId = row.id;
                                         updateEmpInfo = row;
                                         found = true;
                                         return (
-                                        <TableRow key={row.name}>
+                                        <TableRow component={Link}
+                                            to={{pathname: "/update",
+                                            state:
+                                                {id: updateEmpInfo.id,
+                                                    name: updateEmpInfo.name,
+                                                    department: updateEmpInfo.department,
+                                                    gender: updateEmpInfo.gender}
+                                        }}>
                                             <TableCell align="center">{row.id}</TableCell>
                                             <TableCell align="center">{row.name}</TableCell>
                                             <TableCell align="center">{row.department}</TableCell>
@@ -142,34 +132,7 @@ export default function SearchResults(props) {
                         &#x2190; New search
                     </Typography>{" "}
                 </Link>
-                {found ? (
-                    <div className="mod-buttons">
-                        <div className="delete-button">
-                        <Button halfWidth
-                                variant="contained"
-                                color="primary"
-                                preventDefault
-                                onClick={deleteEmp} component={Link}
-                                to="/delete">Delete employee</Button>
-                    </div>
-                        <div>
-                        <Button component={Link}
-                                halfWidth
-                                variant="contained"
-                                color="primary"
-                                preventDefault
-                                to={{pathname: "/update",
-                                    state:
-                                        {name: updateEmpInfo.name,
-                                         department: updateEmpInfo.department,
-                                         gender: updateEmpInfo.gender}
-                                }}>Update employee information
-                        </Button>
-                        </div>
-                    </div>
-                ) : <div></div>
-                }
-                {!isLoading && !found ?(
+                {!isLoading && !found ? (
                     <h1>Your search did not produce any matches</h1>
                 ) : <div></div>
                 }

@@ -55,7 +55,6 @@ export default function AddEmployee() {
     const [message, setMessage] = React.useState("Nothing saved in the session");
 
     async function sampleFunc(toInput) {
-        const id = name;
 
         const response = await fetch("/api/employee", {
             method: "POST", // *GET, POST, PUT, DELETE, etc.

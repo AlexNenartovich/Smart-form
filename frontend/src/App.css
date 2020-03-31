@@ -77,10 +77,14 @@ AddButton {
 }
 
 .delete-button {
-  padding-left: 100px;
   padding-right: 20px;
 }
 
 .mod-buttons {
   display: flex;
+  padding-top: 50px;
+}
+
+.mod-header {
+  padding-left: 300px;
 }
