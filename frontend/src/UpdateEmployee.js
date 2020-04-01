@@ -69,7 +69,9 @@ class UpdateEmployee extends Component {
             redirect: "follow", // manual, *follow, error
             referrerPolicy: "no-referrer", // no-referrer, *client
             body: JSON.stringify(this.state)
-        });
+        })
+            .then((res) => res.json())
+            .then((data) => console.log(data.department));
     }
 
     render() {

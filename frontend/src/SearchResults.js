@@ -49,14 +49,20 @@ export default function SearchResults(props) {
     const [data, upDateData] = React.useState([]);
     const [firstLoad, setLoad] = React.useState(true);
     const searchVal = props.location.search.substr(1);
+    const [found, setFound] = React.useState(false);
     let isLoading = true;
-    let found = false;
     let updateEmpInfo;
 
     async function load() {
         let response = await fetch("/api/employee");
         let body = await response.json();
         upDateData(body);
+        if(body.length > 0) {
+            for(let i = 0; i < body.length; i ++) {
+                if(body[i].name === searchVal)
+                    setFound(true);
+            }
+        }
     }
 
     if (firstLoad) {
@@ -87,10 +93,11 @@ export default function SearchResults(props) {
                         style={{ width: "80%", margin: "0 10px" }}
                         component={Paper}
                     >
-                        {!isLoading && found}
-                            <h1 className="mod-header">Please Select Employee to Modify Data</h1>
-                         <div></div>
-
+                        {found ? (
+                                <h1 className="mod-header">Please Select Employee to Modify Data</h1>
+                            ) :
+                            <div></div>
+                        }
                         <Table className={classes.table} aria-label="simple table">
                             <TableHead>
                                 <TableRow>
@@ -105,7 +112,6 @@ export default function SearchResults(props) {
                                 {data?.map(row => {
                                     if (row.name === searchVal) {
                                         updateEmpInfo = row;
-                                        found = true;
                                         return (
                                         <TableRow component={Link}
                                             to={{pathname: "/update",
