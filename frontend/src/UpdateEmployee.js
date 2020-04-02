@@ -13,7 +13,8 @@ class UpdateEmployee extends Component {
         super();
         this.state = {
             id: "",
-            name: "",
+            firstName: "",
+            lastName: "",
             department: "",
             gender: "",
             dob: ""
@@ -25,14 +26,21 @@ class UpdateEmployee extends Component {
         this.setState({
             id: this.props.location.state.id,
             name: this.props.location.state.name,
+            lastName: this.props.location.state.lastName,
             department: this.props.location.state.department,
             gender: this.props.location.state.gender
         })
     }
 
-    handleNameChange = (event) => {
+    handleFirstNameChange = (event) => {
         this.setState({
             name: event.target.value
+        })
+    }
+
+    handleLastNameChange = (event) => {
+        this.setState({
+            lastName: event.target.value
         })
     }
 
@@ -96,11 +104,24 @@ class UpdateEmployee extends Component {
                                         fullWidth
                                         id="name"
                                         value={this.state.name}
-                                        label="Name"
+                                        label="First Name"
                                         name="name"
                                         autoComplete="name"
-                                        onChange={this.handleNameChange}
+                                        onChange={this.handleFirstNameChange}
                                     />
+                                </Grid>
+                                <Grid item xs={12}>
+                                    <TextField
+                                        variant="outlined"
+                                        required
+                                        fullWidth
+                                        id="name"
+                                        value={this.state.lastName}
+                                        label="Last Name"
+                                        name="name"
+                                        autoComplete="name"
+                                        onChange={this.handleLastNameChange}
+                                        />
                                 </Grid>
                                 <Grid item xs={12} sm={6}>
                                     <TextField

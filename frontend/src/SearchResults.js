@@ -59,10 +59,11 @@ export default function SearchResults(props) {
         upDateData(body);
         if(body.length > 0) {
             for(let i = 0; i < body.length; i ++) {
-                if(body[i].name === searchVal)
+                if(body[i].lastName === searchVal)
                     setFound(true);
             }
         }
+        console.log(body);
     }
 
     if (firstLoad) {
@@ -102,7 +103,8 @@ export default function SearchResults(props) {
                             <TableHead>
                                 <TableRow>
                                     <TableCell align="center">Id</TableCell>
-                                    <TableCell align="center">Name</TableCell>
+                                    <TableCell align="center">First Name</TableCell>
+                                    <TableCell align="center">Last Name</TableCell>
                                     <TableCell align="center">Department</TableCell>
                                     <TableCell align="center">Gender</TableCell>
                                     <TableCell align="center">Dob</TableCell>
@@ -110,7 +112,7 @@ export default function SearchResults(props) {
                             </TableHead>
                             <TableBody>
                                 {data?.map(row => {
-                                    if (row.name === searchVal) {
+                                    if (row.lastName === searchVal) {
                                         updateEmpInfo = row;
                                         return (
                                         <TableRow component={Link}
@@ -118,11 +120,13 @@ export default function SearchResults(props) {
                                             state:
                                                 {id: updateEmpInfo.id,
                                                     name: updateEmpInfo.name,
+                                                    lastName: updateEmpInfo.lastName,
                                                     department: updateEmpInfo.department,
                                                     gender: updateEmpInfo.gender}
                                         }}>
                                             <TableCell align="center">{row.id}</TableCell>
                                             <TableCell align="center">{row.name}</TableCell>
+                                            <TableCell align="center">{row.lastName}</TableCell>
                                             <TableCell align="center">{row.department}</TableCell>
                                             <TableCell align="center">{row.gender}</TableCell>
                                             <TableCell align="center">{row.dob}</TableCell>

@@ -17,6 +17,8 @@ public class Employee {
 	@Column
 	 private String name;
 	@Column
+	 private String lastName;
+	@Column
 	 private String department;
 	@Column
 	 private Date dob;
@@ -24,7 +26,7 @@ public class Employee {
 	 private String gender;
 	@Override
 	 public String toString() {
-	  return "Employee [id= " + id + ", name=" + name + ", department=" + department + ", dob=" + dob + ", gender="
+	  return "Employee [id= " + id + ", first name=" + name + " last name=" + lastName + ", department=" + department + ", dob=" + dob + ", gender="
 	    + gender + "]";
 	 }
 	public Integer getId() {
@@ -39,6 +41,12 @@ public class Employee {
 	public void setName(String name) {
 	  this.name = name;
 	 }
+	public String getLastName() {
+	  return lastName;
+	}
+	public void setLastName(String lastName) {
+	   this.lastName = lastName;
+	}
 	public String getDepartment() {
 	  return department;
 	 }

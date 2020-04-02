@@ -44,11 +44,13 @@ export default function AddEmployee() {
         new Date("1998-04-02")
     );
     const [name, setName] = React.useState("");
+    const [lastName, setLastName] = React.useState("");
     const [department, setDepartment] = React.useState("");
     const [gender, setGender] = React.useState("");
 
     const handleDateChange = date => setSelectedDate(date);
     const handleNameChange = event => setName(event.target.value);
+    const handleLastNameChange = event => setLastName(event.target.value);
     const handlDepartmentChange = event => setDepartment(event.target.value);
     const handleGenderChange = event => setGender(event.target.value);
 
@@ -75,10 +77,11 @@ export default function AddEmployee() {
     }
 
     const handleSubmit = variables => {
-        const toInput = { name, department, gender, selectedDate };
+        const toInput = { name, lastName, department, gender, selectedDate };
 
         sampleFunc(toInput);
         setName("");
+        setLastName("");
         setDepartment("");
         setGender("");
     };
@@ -112,10 +115,23 @@ export default function AddEmployee() {
                                 fullWidth
                                 id="name"
                                 value={name}
-                                label="Name"
+                                label="First Name"
                                 name="name"
                                 autoComplete="name"
                                 onChange={handleNameChange}
+                            />
+                        </Grid>
+                        <Grid item xs={12}>
+                            <TextField
+                                variant="outlined"
+                                required
+                                fullWidth
+                                id="name"
+                                value={lastName}
+                                label="Last Name"
+                                name="name"
+                                autoComplete="name"
+                                onChange={handleLastNameChange}
                             />
                         </Grid>
                         <Grid item xs={12} sm={6}>

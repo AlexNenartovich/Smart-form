@@ -3,7 +3,7 @@ Instructions on how to set up and run:
 Create an RDS database on AWS. Call it Employees. username: root, password: password
 Open Workbench, connect to this RDS database (like we did in lab). Run this query to create a table:
 
-CREATE TABLE `tb_emp` (`id` int(11) NOT NULL AUTO_INCREMENT, `name` varchar(255) DEFAULT NULL,`gender` varchar(255) DEFAULT NULL, `department` varchar(255) DEFAULT NULL, `dob` date DEFAULT NULL, PRIMARY KEY (`id`));
+CREATE TABLE `tb_emp` (`id` int(11) NOT NULL AUTO_INCREMENT, `name` varchar(255) DEFAULT NULL, `last_name` varchar(255) DEFAULT NULL, `gender` varchar(255) DEFAULT NULL, `department` varchar(255) DEFAULT NULL, `dob` date DEFAULT NULL, PRIMARY KEY (`id`));
 
 Clone this repo. In Eclipse or Spring IDE create a new Spring starter project and import this repo into your project.
 In application.properties file, change spring.datasource.url property: leave jdbc:mysql:// part intact, append your RDS endpoint after //

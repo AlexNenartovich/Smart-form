@@ -88,7 +88,8 @@ export default function SimpleTable() {
                         <TableHead>
                             <TableRow>
                                 <TableCell align="center">Id</TableCell>
-                                <TableCell align="center">Name</TableCell>
+                                <TableCell align="center">First Name</TableCell>
+                                <TableCell align="center">Last Name</TableCell>
                                 <TableCell align="center">Department</TableCell>
                                 <TableCell align="center">Gender</TableCell>
                                 <TableCell align="center">Dob</TableCell>
@@ -99,6 +100,7 @@ export default function SimpleTable() {
                                 <TableRow key={row.name}>
                                     <TableCell align="center">{row.id}</TableCell>
                                     <TableCell align="center">{row.name}</TableCell>
+                                    <TableCell align="center">{row.lastName}</TableCell>
                                     <TableCell align="center">{row.department}</TableCell>
                                     <TableCell align="center">{row.gender}</TableCell>
                                     <TableCell align="center">{row.dob}</TableCell>
