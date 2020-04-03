@@ -58,9 +58,14 @@ class UpdateEmployee extends Component {
 
     deleteEmp() {
         let resp = fetch("/api/employee/" + this.state.id, {
-            method: 'delete'
+            method: 'delete',
+            headers: {
+                "Content-Type": "application/json"
+                // 'Content-Type': 'application/x-www-form-urlencoded',
+            },
         })
-            .then(response => response.json());
+            .then(response => response.json())
+            .catch((error) => console.log(error));
         return resp;
     }
 
@@ -79,7 +84,8 @@ class UpdateEmployee extends Component {
             body: JSON.stringify(this.state)
         })
             .then((res) => res.json())
-            .then((data) => console.log(data.department));
+            .then((data) => console.log(data.department))
+            .catch((error) => console.log(error));
     }
 
     render() {
@@ -103,7 +109,7 @@ class UpdateEmployee extends Component {
                                         required
                                         fullWidth
                                         id="name"
-                                        value={this.state.name}
+                                        value={this.state.name || ""}
                                         label="First Name"
                                         name="name"
                                         autoComplete="name"
@@ -116,7 +122,7 @@ class UpdateEmployee extends Component {
                                         required
                                         fullWidth
                                         id="name"
-                                        value={this.state.lastName}
+                                        value={this.state.lastName || ""}
                                         label="Last Name"
                                         name="name"
                                         autoComplete="name"
@@ -130,7 +136,7 @@ class UpdateEmployee extends Component {
                                         variant="outlined"
                                         required
                                         fullWidth
-                                        value={this.state.department}
+                                        value={this.state.department || ""}
                                         id="department"
                                         label="Department"
                                         onChange={this.handleDepartmentChange}
@@ -142,7 +148,7 @@ class UpdateEmployee extends Component {
                                         required
                                         fullWidth
                                         id="gender"
-                                        value={this.state.gender}
+                                        value={this.state.gender || ""}
                                         label="Gender"
                                         name="gender"
                                         autoComplete="gender"
@@ -172,10 +178,10 @@ class UpdateEmployee extends Component {
                 </Container>
                 <div className="mod-buttons">
                     <div className="delete-button">
-                        <Button halfWidth
+                        <Button fullWidth
                                 variant="contained"
                                 color="secondary"
-                                preventDefault
+                    //            preventDefault
                                 onClick={this.deleteEmp}
                                 component={Link}
                                 to="/delete">
@@ -184,11 +190,11 @@ class UpdateEmployee extends Component {
                     </div>
                     <div>
                         <Button component={Link}
-                                halfWidth
+                                fullWidth
                                 variant="contained"
                                 color="primary"
                                 onClick={this.updateEmployee}
-                                preventDefault
+                   //             preventDefault
                                 to="/delete"
                         >Update information
                         </Button>

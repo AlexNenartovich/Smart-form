@@ -63,7 +63,6 @@ export default function SearchResults(props) {
                     setFound(true);
             }
         }
-        console.log(body);
     }
 
     if (firstLoad) {
@@ -115,7 +114,7 @@ export default function SearchResults(props) {
                                     if (row.lastName === searchVal) {
                                         updateEmpInfo = row;
                                         return (
-                                        <TableRow component={Link}
+                                        <TableRow key={row.lastName} component={Link}
                                             to={{pathname: "/update",
                                             state:
                                                 {id: updateEmpInfo.id,

@@ -72,8 +72,7 @@ export default function AddEmployee() {
             body: JSON.stringify(toInput) // body data type must match "Content-Type" header
         });
         let body = await response.json();
-        console.log(body.id);
-        setMessage(body.id ? "Data sucessfully updated" : "Data updation failed");
+        setMessage(body.id ? "Data sucessfully updated" : "Data update failed");
     }
 
     const handleSubmit = variables => {
@@ -179,7 +178,7 @@ export default function AddEmployee() {
                         fullWidth
                         variant="contained"
                         color="primary"
-                        preventDefault
+                //        preventDefault
                         className={classes.submit}
                         onClick={handleSubmit}
                     >
