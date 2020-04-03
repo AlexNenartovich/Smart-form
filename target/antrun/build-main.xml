@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="maven-antrun-" default="main"  >
+<target name="main">
+  <copy todir="/Users/aliaksandrnenartovich/Documents/workspace-spring-tool-suite-4-4.5.1.RELEASE/Smart-form/target/classes/public">
+    <fileset dir="/Users/aliaksandrnenartovich/Documents/workspace-spring-tool-suite-4-4.5.1.RELEASE/Smart-form/frontend/build"/>
+  </copy>
+</target>
+</project>
