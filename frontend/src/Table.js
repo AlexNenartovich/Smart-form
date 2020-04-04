@@ -113,7 +113,7 @@ export default function SimpleTable() {
             <Link className={classes.link} to="/">
                 {" "}
                 <Typography align="left">
-                    &#x2190; Head back to save data
+                    &#x2190; Back to Main Page
                 </Typography>{" "}
             </Link>
         </div>
