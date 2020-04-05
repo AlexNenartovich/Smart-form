@@ -34,27 +34,21 @@
            <build>
            		<plugins>
            		
-           		
-           			<plugin>
-            			<groupId>org.springframework.boot</groupId>
-            			<artifactId>spring-boot-maven-plugin</artifactId>
-         			</plugin>
-           			<plugin>
-           				 <groupId>org.apache.maven.plugins</groupId>
-                		<artifactId>maven-jar-plugin</artifactId>
-                		<version>3.1.0</version>
-                		<configuration>
-                  			<archive>
-                    			<manifest>
+           		  <plugin>
+           		    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-maven-plugin</artifactId>
+                      <configuration>
+                        <mainClass>com.example.demo.SmartFormApplication</mainClass>
+                    </configuration>
 
-                    <!-- give full qualified name of your main class-->
-                      				<mainClass>com.example.demo.SmartFormApplication</mainClass>
-
-                    			</manifest>
-                  			</archive>
-                		</configuration>
-           			</plugin>
-           		
+                  <executions>
+                    <execution>
+                      <goals>
+                        <goal>repackage</goal>
+                      </goals>
+                  </execution>
+              </executions>
+            </plugin>
            		
                		<plugin>
                    		<artifactId>maven-resources-plugin</artifactId>
