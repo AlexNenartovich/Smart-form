@@ -33,25 +33,6 @@
            <id>prod</id>
            <build>
            		<plugins>
-           		
-
-
-                <plugin>
-                  <groupId>org.springframework.boot</groupId>
-                    <artifactId>spring-boot-maven-plugin</artifactId>
-                      <configuration>
-                        <mainClass>com.example.demo.SmartFormApplication</mainClass>
-                    </configuration>
-                  <executions>
-                    <execution>
-                      <goals>
-                        <goal>repackage</goal>
-                      </goals>
-                  </execution>
-              </executions>
-            </plugin>
-
-           		
 
               
                		<plugin>
@@ -200,6 +181,29 @@
 	<build>
 		<pluginManagement>
 			<plugins>
+
+
+
+
+				 <plugin>
+                  <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-maven-plugin</artifactId>
+                      <configuration>
+                        <mainClass>com.example.demo.SmartFormApplication</mainClass>
+                    </configuration>
+                  <executions>
+                    <execution>
+                      <goals>
+                        <goal>repackage</goal>
+                      </goals>
+                  </execution>
+              </executions>
+            </plugin>
+
+
+
+
+
 				<plugin>
 					<groupId>org.springframework.boot</groupId>
 					<artifactId>spring-boot-maven-plugin</artifactId>
