@@ -13,7 +13,7 @@ const LandingPage = props => (
             <h2>Please choose from the options below</h2>
             <div className="button">
                 <div style={{padding: "20px"}}>
-                    <CallToAction href="/add" mt={3}>Add Employee</CallToAction>
+                    <CallToAction href="/add" mt={3}>Add New Employee</CallToAction>
                 </div>
                 <div style={{padding: "20px"}}>
                     <CallToAction href="/view" mt={3}>View Employees</CallToAction>
