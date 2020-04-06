@@ -29,7 +29,6 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
-  "homepage" : "https://smart-form-cmpe172.herokuapp.com",
   "eslintConfig": {
     "extends": "react-app"
   },
