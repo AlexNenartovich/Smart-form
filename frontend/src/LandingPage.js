@@ -18,10 +18,10 @@ const LandingPage = props => (
                     <Button component={Link} color="primary" fullWidth variant="contained" to="/add" >Add Employee</Button>
                 </div>
                 <div style={{padding: "20px"}}>
-                    <CButton component={Link} color="primary" fullWidth variant="contained" to="/view" >View Employees</Button>
+                    <Button component={Link} color="primary" fullWidth variant="contained" to="/view" >View Employees</Button>
                 </div>
                 <div style={{padding: "20px"}}>
-                    <CButton component={Link} color="primary" fullWidth variant="contained" to="/search" >Search for Employee</Button>
+                    <Button component={Link} color="primary" fullWidth variant="contained" to="/search" >Search for Employee</Button>
                 </div>
             </div>
         </Hero>
