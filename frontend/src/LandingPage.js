@@ -14,14 +14,29 @@ const LandingPage = props => (
             <h1>Welcome to SmartForm!</h1>
             <h2>Please choose from the options below</h2>
             <div className="button">
-                <div style={{padding: "20px"}}>
-                    <Button component={Link} color="primary" fullWidth variant="contained" to="/add" >Add Employee</Button>
+                <div style={{padding: "35px"}}>
+                    <Button style={{backgroundColor: 'blue', maxWidth: '300px', maxHeight: '100px', minWidth: '200px', minHeight: '50px'}}
+                            color="primary"
+                            component={Link}
+                            fullWidth
+                            variant="contained"
+                            to="/add">Add Employee</Button>
                 </div>
-                <div style={{padding: "20px"}}>
-                    <Button component={Link} color="primary" fullWidth variant="contained" to="/view" >View Employees</Button>
+                <div style={{padding: "35px"}}>
+                    <Button style={{backgroundColor: 'blue', maxWidth: '300px', maxHeight: '100px', minWidth: '200px', minHeight: '50px'}}
+                            color="primary"
+                            component={Link}
+                            fullWidth
+                            variant="contained"
+                            to="/view">View Employees</Button>
                 </div>
-                <div style={{padding: "20px"}}>
-                    <Button component={Link} color="primary" fullWidth variant="contained" to="/search" >Search for Employee</Button>
+                <div style={{padding: "35px"}}>
+                    <Button style={{backgroundColor: 'blue', maxWidth: '300px', maxHeight: '100px', minWidth: '200px', minHeight: '50px'}}
+                            color="primary"
+                            component={Link}
+                            fullWidth
+                            variant="contained"
+                            to="/search">Search for Employee</Button>
                 </div>
             </div>
         </Hero>
