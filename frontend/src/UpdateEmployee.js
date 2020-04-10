@@ -168,11 +168,6 @@ class UpdateEmployee extends Component {
                                     />
                                 </Grid>
                             </Grid>
-                            <Grid container justify="center">
-                                <Grid item>
-                                    <Link to="/view">View Employee Records</Link>
-                                </Grid>
-                            </Grid>
                         </form>
                     </div>
                 </Container>

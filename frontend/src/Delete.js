@@ -29,7 +29,9 @@ class Delete extends Component {
                                 fullWidth
                                 variant="contained"
                                 color="primary"
-                                to="/view"
+                                to={{pathname: "/view",
+                                    state: {route: "employee"}
+                                }}
                         >View employees
                         </Button>
                     </div>
