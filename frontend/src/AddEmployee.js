@@ -186,10 +186,12 @@ export default function AddEmployee() {
                     </Button>
 
                     <Grid container justify="center">
-                        <Grid item>
-                            <Link to={{pathname: "/view",
-                                state: {route: "/employee"}}}
-                            >View Employee Records</Link>
+                        <Grid item component={Link}
+                              to={{pathname: "/view",
+                                  state:
+                                      {route: "employee"}}
+                              }>
+                            View Employee Records
                         </Grid>
                     </Grid>
                 </form>

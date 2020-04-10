@@ -30,7 +30,8 @@ class Delete extends Component {
                                 variant="contained"
                                 color="primary"
                                 to={{pathname: "/view",
-                                    state: {route: "employee"}
+                                    state:
+                                        {route: "employee"}
                                 }}
                         >View employees
                         </Button>
