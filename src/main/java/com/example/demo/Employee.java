@@ -21,6 +21,10 @@ public class Employee {
 	@Column
 	 private String department;
 	@Column
+	 private Integer salary;
+	@Column
+	 private Integer years;
+	@Column
 	 private Date dob;
 	@Column
 	 private String gender;
@@ -53,6 +57,18 @@ public class Employee {
 	public void setDepartment(String department) {
 	  this.department = department;
 	 }
+	public Integer getSalary() {
+		return salary;
+	}
+	public void setSalary(Integer salary) {
+		this.salary = salary;
+	}
+	public Integer getYears() {
+		return years;
+	}
+	public void setYears(Integer years) {
+		this.years = years;
+	}
 	public Date getDob() {
 	  return dob;
 	 }

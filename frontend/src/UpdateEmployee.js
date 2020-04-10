@@ -17,6 +17,8 @@ class UpdateEmployee extends Component {
             lastName: "",
             department: "",
             gender: "",
+            salary: "",
+            years: "",
             dob: ""
         }
         this.deleteEmp = this.deleteEmp.bind(this);
@@ -28,7 +30,9 @@ class UpdateEmployee extends Component {
             name: this.props.location.state.name,
             lastName: this.props.location.state.lastName,
             department: this.props.location.state.department,
-            gender: this.props.location.state.gender
+            gender: this.props.location.state.gender,
+            salary: this.props.location.state.salary,
+            years: this.props.location.state.years
         })
     }
 
@@ -53,6 +57,18 @@ class UpdateEmployee extends Component {
     handleGenderChange = (event) => {
         this.setState({
             gender: event.target.value
+        })
+    }
+
+    handleSalaryChange = (event) => {
+        this.setState({
+            salary: event.target.value
+        })
+    }
+
+    handleYearsChange = (event) => {
+        this.setState({
+            years: event.target.value
         })
     }
 
@@ -153,6 +169,32 @@ class UpdateEmployee extends Component {
                                         name="gender"
                                         autoComplete="gender"
                                         onChange={this.handleGenderChange}
+                                    />
+                                </Grid>
+                                <Grid item xs={12} sm={6}>
+                                    <TextField
+                                        variant="outlined"
+                                        required
+                                        fullWidth
+                                        id="salary"
+                                        value={this.state.salary || ""}
+                                        label="Salary"
+                                        name="salary"
+                                        autoComplete="salary"
+                                        onChange={this.handleSalaryChange}
+                                    />
+                                </Grid>
+                                <Grid item xs={12} sm={6}>
+                                    <TextField
+                                        variant="outlined"
+                                        required
+                                        fullWidth
+                                        id="years"
+                                        value={this.state.years || ""}
+                                        label="Years of Experience"
+                                        name="years"
+                                        autoComplete="years"
+                                        onChange={this.handleYearsChange}
                                     />
                                 </Grid>
                                 <Grid item xs={12}>

@@ -40,7 +40,7 @@ const LandingPage = props => (
                             component={Link}
                             fullWidth
                             variant="contained"
-                            to="/search">Search for Employee</Button>
+                            to="/search">Search</Button>
                 </div>
             </div>
         </Hero>

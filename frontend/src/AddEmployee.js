@@ -47,12 +47,16 @@ export default function AddEmployee() {
     const [lastName, setLastName] = React.useState("");
     const [department, setDepartment] = React.useState("");
     const [gender, setGender] = React.useState("");
+    const [salary, setSalary] = React.useState("");
+    const [years, setYears] = React.useState("");
 
     const handleDateChange = date => setSelectedDate(date);
     const handleNameChange = event => setName(event.target.value);
     const handleLastNameChange = event => setLastName(event.target.value);
     const handlDepartmentChange = event => setDepartment(event.target.value);
     const handleGenderChange = event => setGender(event.target.value);
+    const handleSalaryChange = event => setSalary(event.target.value);
+    const handleYearsChange = event => setYears(event.target.value);
 
     const [message, setMessage] = React.useState("Nothing saved in the session");
 
@@ -76,13 +80,15 @@ export default function AddEmployee() {
     }
 
     const handleSubmit = variables => {
-        const toInput = { name, lastName, department, gender, selectedDate };
+        const toInput = { name, lastName, department, gender, salary, years, selectedDate };
 
         sampleFunc(toInput);
         setName("");
         setLastName("");
         setDepartment("");
         setGender("");
+        setSalary("");
+        setYears("");
     };
 
     if (firstLoad) {
@@ -157,6 +163,32 @@ export default function AddEmployee() {
                                 name="gender"
                                 autoComplete="gender"
                                 onChange={handleGenderChange}
+                            />
+                        </Grid>
+                        <Grid item xs={12} sm={6}>
+                            <TextField
+                                variant="outlined"
+                                required
+                                fullWidth
+                                id="gender"
+                                value={salary}
+                                label="Salary"
+                                name="salary"
+                                autoComplete="salary"
+                                onChange={handleSalaryChange}
+                            />
+                        </Grid>
+                        <Grid item xs={12} sm={6}>
+                            <TextField
+                                variant="outlined"
+                                required
+                                fullWidth
+                                id="gender"
+                                value={years}
+                                label="Years of Experience"
+                                name="years of work experience"
+                                autoComplete="years of work experience"
+                                onChange={handleYearsChange}
                             />
                         </Grid>
                         <Grid item xs={12}>

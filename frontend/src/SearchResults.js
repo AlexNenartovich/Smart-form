@@ -106,6 +106,8 @@ export default function SearchResults(props) {
                                     <TableCell align="center">Last Name</TableCell>
                                     <TableCell align="center">Department</TableCell>
                                     <TableCell align="center">Gender</TableCell>
+                                    <TableCell align="center">Salary</TableCell>
+                                    <TableCell align="center">Years of Experiencer</TableCell>
                                     <TableCell align="center">Dob</TableCell>
                                 </TableRow>
                             </TableHead>
@@ -117,17 +119,23 @@ export default function SearchResults(props) {
                                         <TableRow key={row.lastName} component={Link}
                                             to={{pathname: "/update",
                                             state:
-                                                {id: updateEmpInfo.id,
+                                                {
+                                                    id: updateEmpInfo.id,
                                                     name: updateEmpInfo.name,
                                                     lastName: updateEmpInfo.lastName,
                                                     department: updateEmpInfo.department,
-                                                    gender: updateEmpInfo.gender}
+                                                    gender: updateEmpInfo.gender,
+                                                    salary: updateEmpInfo.salary,
+                                                    years: updateEmpInfo.years
+                                                }
                                         }}>
                                             <TableCell align="center">{row.id}</TableCell>
                                             <TableCell align="center">{row.name}</TableCell>
                                             <TableCell align="center">{row.lastName}</TableCell>
                                             <TableCell align="center">{row.department}</TableCell>
                                             <TableCell align="center">{row.gender}</TableCell>
+                                            <TableCell align="center">{row.salary}</TableCell>
+                                            <TableCell align="center">{row.years}</TableCell>
                                             <TableCell align="center">{row.dob}</TableCell>
                                         </TableRow>
                                         )}})}
