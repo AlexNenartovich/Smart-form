@@ -26,9 +26,13 @@ const LandingPage = props => (
                     <Button style={{backgroundColor: 'blue', maxWidth: '300px', maxHeight: '100px', minWidth: '200px', minHeight: '50px'}}
                             color="primary"
                             component={Link}
+                            to={{ pathname: "/view",
+                            state:
+                            {route: "employee"}}
+                            }
                             fullWidth
                             variant="contained"
-                            to="/view">View Employees</Button>
+                            >View Employees</Button>
                 </div>
                 <div style={{padding: "35px"}}>
                     <Button style={{backgroundColor: 'blue', maxWidth: '300px', maxHeight: '100px', minWidth: '200px', minHeight: '50px'}}

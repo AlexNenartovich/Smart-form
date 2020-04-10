@@ -13,6 +13,7 @@ import { Link } from "react-router-dom";
 import Typography from "@material-ui/core/Typography";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import { Hero} from "react-landing-page";
+import { useLocation } from 'react-router-dom';
 
 const useStyles = makeStyles(theme => ({
     table: {
@@ -50,8 +51,12 @@ export default function SimpleTable() {
     const [firstLoad, setLoad] = React.useState(true);
     let isLoading = true;
 
+
+    let location = useLocation();
+    let route = location.state.route;
+
     async function sampleFunc() {
-        let response = await fetch("/api/employee");
+        let response = await fetch("/api/" + route);
         let body = await response.json();
         upDateData(body);
     }

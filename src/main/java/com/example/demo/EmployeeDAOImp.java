@@ -37,4 +37,12 @@ public class EmployeeDAOImp implements EmployeeDAO {
 	  Employee emp = currSession.get(Employee.class, id);
 	  currSession.delete(emp);
 	}
+	
+	@Override
+	public List<Employee> findByLastName() {
+		  Session currSession = entityManager.unwrap(Session.class);
+		  Query<Employee> query = currSession.createQuery("from Employee where id = (select MAX(id) from Employee)", Employee.class);
+		  List<Employee> list = query.getResultList();
+		  return list;
+		 }
 }

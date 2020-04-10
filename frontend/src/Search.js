@@ -2,12 +2,15 @@ import React, { Component } from "react";
 import SearchBar from 'material-ui-search-bar';
 import "./App.css";
 import {Hero} from "react-landing-page";
+import { Link } from 'react-router-dom';
+import Button from "@material-ui/core/Button/Button";
 
 class Search extends Component {
     constructor() {
         super();
         this.state = {
-            val: ""
+            val: "",
+            test: "Initial"
         }
     }
 
@@ -23,6 +26,18 @@ class Search extends Component {
             search: this.state.val
         });
     }
+
+
+
+    handleSubmit = () => {
+            fetch("/api/lastname")
+                .then((response) => response.json())
+                .then((data) => this.setState({
+                    test: data[0].lastName
+                }))
+    }
+
+
     render() {
         return (
             <Hero
@@ -38,6 +53,12 @@ class Search extends Component {
                         onRequestSearch={() => this.handleSearch()}
                         style={{margin: '0 auto', maxWidth: 800}}/>
                 </div>
+                <Button component={Link} to={{
+                    pathname: "/view",
+                    state: {
+                    route: "lastname"
+                }}} >Click me</Button>
+                <div>{this.state.test}</div>
             </Hero>
         )
     }

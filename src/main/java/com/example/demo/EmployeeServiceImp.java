@@ -33,5 +33,12 @@ public class EmployeeServiceImp implements EmployeeService {
 	  employeeDao.delete(id);
 	  
 	 }
+	
+	@Transactional
+	 @Override
+	 public List<Employee> findByLastName() {
+		return employeeDao.findByLastName();
+		
+	}
 }
 

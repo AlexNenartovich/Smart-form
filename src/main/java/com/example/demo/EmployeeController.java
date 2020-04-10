@@ -48,5 +48,10 @@ public class EmployeeController {
 	  employeeService.save(employee);
 	  return employee;
 	 }
+	 
+	 @GetMapping("/lastname")
+	 public List<Employee> findByLastName() {
+	  return employeeService.findByLastName();
+	 }
 }
 
