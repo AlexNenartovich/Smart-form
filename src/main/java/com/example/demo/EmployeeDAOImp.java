@@ -41,7 +41,9 @@ public class EmployeeDAOImp implements EmployeeDAO {
 	@Override
 	public List<Employee> findByLastName() {
 		  Session currSession = entityManager.unwrap(Session.class);
-		  Query<Employee> query = currSession.createQuery("from Employee where id = (select MAX(id) from Employee)", Employee.class);
+		  Query<Employee> query = currSession.createQuery("from Employee where (department, salary) in (select department, MAX(salary) from Employee group by department) order by salary DESC", Employee.class);
+		//  query.setFirstResult(0);
+		//  query.setMaxResults(3);
 		  List<Employee> list = query.getResultList();
 		  return list;
 		 }
