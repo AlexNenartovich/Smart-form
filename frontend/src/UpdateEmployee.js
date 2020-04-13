@@ -7,11 +7,13 @@ import TextField from "@material-ui/core/TextField/TextField";
 import Button from "@material-ui/core/Button/Button";
 import {Link} from "react-router-dom";
 import "./App.css"
+import Typography from "@material-ui/core/Typography/Typography";
 
 class UpdateEmployee extends Component {
     constructor() {
         super();
         this.state = {
+            message: "No modifications made",
             id: "",
             firstName: "",
             lastName: "",
@@ -26,7 +28,7 @@ class UpdateEmployee extends Component {
 
     componentDidMount() {
         this.setState({
-            id: this.props.location.state.id,
+            id: this.props.location.state.id || "",
             name: this.props.location.state.name,
             lastName: this.props.location.state.lastName,
             department: this.props.location.state.department,
@@ -73,16 +75,36 @@ class UpdateEmployee extends Component {
     }
 
     deleteEmp() {
-        let resp = fetch("/api/employee/" + this.state.id, {
-            method: 'delete',
-            headers: {
-                "Content-Type": "application/json"
-                // 'Content-Type': 'application/x-www-form-urlencoded',
-            },
-        })
-            .then(response => response.json())
-            .catch((error) => console.log(error));
-        return resp;
+        if(window.confirm("Are you sure you want to delete this employee?")) {
+            let resp = fetch("/api/employee/" + this.state.id, {
+                method: 'delete',
+                headers: {
+                    "Content-Type": "application/json"
+                    // 'Content-Type': 'application/x-www-form-urlencoded',
+                },
+            })
+                .then(response => response.json())
+                .catch((error) => console.log(error));
+            if(resp.id !== 'undefined') {
+                this.setState({
+                    message: "Employee has been deleted from database",
+                    id: "",
+                    name: "",
+                    lastName: "",
+                    department: "",
+                    gender: "",
+                    salary: "",
+                    years: "",
+                    dob: ""
+                })
+            }
+            else {
+                this.setState({
+                    message: "Delete process failed, please try again"
+                })
+            }
+            return resp;
+        }
     }
 
     updateEmployee = () => {
@@ -221,7 +243,7 @@ class UpdateEmployee extends Component {
                     //            preventDefault
                                 onClick={this.deleteEmp}
                                 component={Link}
-                                to="/delete">
+                        >
                             Delete employee
                         </Button>
                     </div>
@@ -237,6 +259,15 @@ class UpdateEmployee extends Component {
                         </Button>
                     </div>
                 </div>
+                <Typography style={{ margin: 7 }} variant="body1">
+                    Status: {this.state.message}
+                </Typography>
+                <Link to="/search">
+                    {" "}
+                    <Typography align="left">
+                        &#x2190; New search
+                    </Typography>{" "}
+                </Link>
             </Hero>
         )
     }
