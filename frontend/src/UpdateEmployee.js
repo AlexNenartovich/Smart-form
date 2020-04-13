@@ -9,6 +9,8 @@ import {Link} from "react-router-dom";
 import "./App.css"
 import Typography from "@material-ui/core/Typography/Typography";
 
+let deleted = false;
+
 class UpdateEmployee extends Component {
     constructor() {
         super();
@@ -86,6 +88,7 @@ class UpdateEmployee extends Component {
                 .then(response => response.json())
                 .catch((error) => console.log(error));
             if(resp.id !== 'undefined') {
+                deleted = true;
                 this.setState({
                     message: "Employee has been deleted from database",
                     id: "",
@@ -108,31 +111,36 @@ class UpdateEmployee extends Component {
     }
 
     updateEmployee = () => {
-        let response = fetch("/api/employee" , {
-            method: "PUT", // *GET, POST, PUT, DELETE, etc.
-            mode: "cors", // no-cors, *cors, same-origin
-            cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
-            credentials: "same-origin", // include, *same-origin, omit
-            headers: {
-                "Content-Type": "application/json"
-                // 'Content-Type': 'application/x-www-form-urlencoded',
-            },
-            redirect: "follow", // manual, *follow, error
-            referrerPolicy: "no-referrer", // no-referrer, *client
-            body: JSON.stringify(this.state)
-        })
-            .then((res) => res.json())
-            .then((data) => console.log(data.department))
-            .catch((error) => console.log(error));
-        if(response.id !== 'undefined') {
-            this.setState({
-                message: "Employee information has been updated"
-            })
+        if(deleted) {
+            window.alert("This employee has already been deleted from database. Please choose between New search or View employees options")
         }
         else {
-            this.setState({
-                message: "Update failed. Please try again"
+            let response = fetch("/api/employee", {
+                method: "PUT", // *GET, POST, PUT, DELETE, etc.
+                mode: "cors", // no-cors, *cors, same-origin
+                cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
+                credentials: "same-origin", // include, *same-origin, omit
+                headers: {
+                    "Content-Type": "application/json"
+                    // 'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                redirect: "follow", // manual, *follow, error
+                referrerPolicy: "no-referrer", // no-referrer, *client
+                body: JSON.stringify(this.state)
             })
+                .then((res) => res.json())
+                .then((data) => console.log(data.department))
+                .catch((error) => console.log(error));
+            if (response.id !== 'undefined') {
+                this.setState({
+                    message: "Employee information has been updated"
+                })
+            }
+            else {
+                this.setState({
+                    message: "Update failed. Please try again"
+                })
+            }
         }
     }
 
