@@ -108,7 +108,7 @@ class UpdateEmployee extends Component {
     }
 
     updateEmployee = () => {
-        fetch("/api/employee" , {
+        let response = fetch("/api/employee" , {
             method: "PUT", // *GET, POST, PUT, DELETE, etc.
             mode: "cors", // no-cors, *cors, same-origin
             cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
@@ -124,6 +124,16 @@ class UpdateEmployee extends Component {
             .then((res) => res.json())
             .then((data) => console.log(data.department))
             .catch((error) => console.log(error));
+        if(response.id !== 'undefined') {
+            this.setState({
+                message: "Employee information has been updated"
+            })
+        }
+        else {
+            this.setState({
+                message: "Update failed. Please try again"
+            })
+        }
     }
 
     render() {
@@ -240,7 +250,6 @@ class UpdateEmployee extends Component {
                         <Button fullWidth
                                 variant="contained"
                                 color="secondary"
-                    //            preventDefault
                                 onClick={this.deleteEmp}
                                 component={Link}
                         >
@@ -253,8 +262,6 @@ class UpdateEmployee extends Component {
                                 variant="contained"
                                 color="primary"
                                 onClick={this.updateEmployee}
-                   //             preventDefault
-                                to="/delete"
                         >Update information
                         </Button>
                     </div>
@@ -265,7 +272,17 @@ class UpdateEmployee extends Component {
                 <Link to="/search">
                     {" "}
                     <Typography align="left">
-                        &#x2190; New search
+                        New search
+                    </Typography>{" "}
+                </Link>
+                <Link to={{pathname: "/view",
+                        state: {
+                           route: "employee"
+                        }
+                }}>
+                    {" "}
+                    <Typography align="left">
+                        View employees
                     </Typography>{" "}
                 </Link>
             </Hero>

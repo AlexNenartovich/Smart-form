@@ -4,6 +4,8 @@ import "./App.css";
 import {Hero} from "react-landing-page";
 import { Link } from 'react-router-dom';
 import Button from "@material-ui/core/Button/Button";
+import Grid from "@material-ui/core/Grid/Grid";
+import Typography from "@material-ui/core/Typography/Typography";
 
 class Search extends Component {
     constructor() {
@@ -52,6 +54,14 @@ class Search extends Component {
                         onChange={(value) => {this.setState({val: value})}}
                         onRequestSearch={() => this.handleSearch()}
                         style={{margin: '0 auto', maxWidth: 800}}/>
+                    <div className="main-search">
+                        <Grid container justify="left">
+                            <Grid item component={Link}
+                                  to="/">
+                                &#x2190; Main page
+                            </Grid>
+                        </Grid>
+                    </div>
                 </div>
                 <Button component={Link} to={{
                     pathname: "/view",
