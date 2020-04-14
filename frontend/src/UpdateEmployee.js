@@ -278,7 +278,7 @@ class UpdateEmployee extends Component {
                                         label="Date of birth"
                                         type="date"
                                         className='textField'
-                                        defaultValue={this.state.dob || ""}
+                                        value={this.state.dob || ""}
                                         InputLabelProps={{
                                             shrink: true
                                         }}
