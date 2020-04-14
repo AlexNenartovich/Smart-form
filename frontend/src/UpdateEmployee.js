@@ -10,6 +10,7 @@ import "./App.css"
 import Typography from "@material-ui/core/Typography/Typography";
 
 let deleted = false;
+let returned = false;
 
 class UpdateEmployee extends Component {
     constructor() {
@@ -29,15 +30,29 @@ class UpdateEmployee extends Component {
     }
 
     componentDidMount() {
-        this.setState({
-            id: this.props.location.state.id || "",
-            name: this.props.location.state.name,
-            lastName: this.props.location.state.lastName,
-            department: this.props.location.state.department,
-            gender: this.props.location.state.gender,
-            salary: this.props.location.state.salary,
-            years: this.props.location.state.years
-        })
+        if(this.props === 'undefined') {
+            returned = true;
+            this.setState({
+                id: "",
+                name: "",
+                lastName: "",
+                department: "",
+                gender: "",
+                salary: "",
+                years: ""
+            })
+        }
+        else {
+            this.setState({
+                id: this.props.location.state.id || "",
+                name: this.props.location.state.name,
+                lastName: this.props.location.state.lastName,
+                department: this.props.location.state.department,
+                gender: this.props.location.state.gender,
+                salary: this.props.location.state.salary,
+                years: this.props.location.state.years
+            })
+        }
     }
 
     handleFirstNameChange = (event) => {
@@ -77,7 +92,10 @@ class UpdateEmployee extends Component {
     }
 
     deleteEmp() {
-        if(deleted) {
+        if(returned) {
+            window.alert("Your previous request has been fulfilled. Please choose between New search or View employees options");
+        }
+        else if(deleted) {
             window.alert("This employee has already been deleted from database. Please choose between New search or View employees options");
         }
         else {
@@ -116,7 +134,10 @@ class UpdateEmployee extends Component {
     }
 
     updateEmployee = () => {
-        if(deleted) {
+        if(returned) {
+            window.alert("Your previous request has been fulfilled. Please choose between New search or View employees options");
+        }
+        else if(deleted) {
             window.alert("This employee has already been deleted from database. Please choose between New search or View employees options")
         }
         else {
