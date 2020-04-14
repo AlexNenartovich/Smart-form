@@ -42,6 +42,14 @@ const LandingPage = props => (
                             variant="contained"
                             to="/search">Search</Button>
                 </div>
+                <div style={{padding: "35px"}}>
+                    <Button style={{backgroundColor: 'blue', maxWidth: '300px', maxHeight: '100px', minWidth: '200px', minHeight: '50px'}}
+                            color="primary"
+                            component={Link}
+                            fullWidth
+                            variant="contained"
+                            to="/analytics">Analytics</Button>
+                </div>
             </div>
         </Hero>
     </div>

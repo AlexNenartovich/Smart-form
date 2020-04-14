@@ -6,6 +6,7 @@ import LandingPage from "./LandingPage";
 import Search from "./Search";
 import SearchResults from "./SearchResults";
 import UpdateEmployee from "./UpdateEmployee";
+import Analytics from "./Analytics";
 
 class App extends Component {
     render() {
@@ -18,6 +19,7 @@ class App extends Component {
                   <Route exact path="/search" component={Search} />
                   <Route exact path="/searchres" component={SearchResults} />
                   <Route exact path="/update" component={UpdateEmployee} />
+                  <Route exact path="/analytics" component={Analytics} />
               </Switch>
             </Router>
         );

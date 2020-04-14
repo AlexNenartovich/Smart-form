@@ -77,36 +77,41 @@ class UpdateEmployee extends Component {
     }
 
     deleteEmp() {
-        if(window.confirm("Are you sure you want to delete this employee?")) {
-            let resp = fetch("/api/employee/" + this.state.id, {
-                method: 'delete',
-                headers: {
-                    "Content-Type": "application/json"
-                    // 'Content-Type': 'application/x-www-form-urlencoded',
-                },
-            })
-                .then(response => response.json())
-                .catch((error) => console.log(error));
-            if(resp.id !== 'undefined') {
-                deleted = true;
-                this.setState({
-                    message: "Employee has been deleted from database",
-                    id: "",
-                    name: "",
-                    lastName: "",
-                    department: "",
-                    gender: "",
-                    salary: "",
-                    years: "",
-                    dob: ""
+        if(deleted) {
+            window.alert("This employee has already been deleted from database. Please choose between New search or View employees options");
+        }
+        else {
+            if (window.confirm("Are you sure you want to delete this employee?")) {
+                let resp = fetch("/api/employee/" + this.state.id, {
+                    method: 'delete',
+                    headers: {
+                        "Content-Type": "application/json"
+                        // 'Content-Type': 'application/x-www-form-urlencoded',
+                    },
                 })
+                    .then(response => response.json())
+                    .catch((error) => console.log(error));
+                if (resp.id !== 'undefined') {
+                    deleted = true;
+                    this.setState({
+                        message: "Employee has been deleted from database",
+                        id: "",
+                        name: "",
+                        lastName: "",
+                        department: "",
+                        gender: "",
+                        salary: "",
+                        years: "",
+                        dob: ""
+                    })
+                }
+                else {
+                    this.setState({
+                        message: "Delete process failed, please try again"
+                    })
+                }
+                return resp;
             }
-            else {
-                this.setState({
-                    message: "Delete process failed, please try again"
-                })
-            }
-            return resp;
         }
     }
 

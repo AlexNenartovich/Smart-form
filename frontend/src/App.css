@@ -101,3 +101,18 @@ AddButton {
 .main-search {
   padding-top: 20px;
 }
+
+.analytics {
+  display: flex;
+}
+
+.container {
+  padding-left: 400px;
+  padding-top: 100px;
+}
+
+.label {
+  padding-right: 50px;
+  padding-top: 8px;
+  font-weight: bold;
+}
