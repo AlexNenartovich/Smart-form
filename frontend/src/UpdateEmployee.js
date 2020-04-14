@@ -30,7 +30,7 @@ class UpdateEmployee extends Component {
     }
 
     componentDidMount() {
-        if(this.props === 'undefined') {
+        if(this.props.location.state === 'undefined') {
             returned = true;
             this.setState({
                 id: "",
@@ -155,7 +155,6 @@ class UpdateEmployee extends Component {
                 body: JSON.stringify(this.state)
             })
                 .then((res) => res.json())
-                .then((data) => console.log(data.department))
                 .catch((error) => console.log(error));
             if (response.id !== 'undefined') {
                 this.setState({
