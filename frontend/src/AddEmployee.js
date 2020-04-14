@@ -39,18 +39,16 @@ const useStyles = makeStyles(theme => ({
 export default function AddEmployee() {
     const classes = useStyles();
     const [firstLoad, setLoad] = React.useState(true);
-
-    const [selectedDate, setSelectedDate] = React.useState(
-        new Date("1998-04-02")
-    );
+    
     const [name, setName] = React.useState("");
     const [lastName, setLastName] = React.useState("");
     const [department, setDepartment] = React.useState("");
     const [gender, setGender] = React.useState("");
     const [salary, setSalary] = React.useState("");
     const [years, setYears] = React.useState("");
+    const [date, setDate] = React.useState("");
 
-    const handleDateChange = date => setSelectedDate(date);
+    const handleDateChange = event => setDate(event.target.value);
     const handleNameChange = event => setName(event.target.value);
     const handleLastNameChange = event => setLastName(event.target.value);
     const handlDepartmentChange = event => setDepartment(event.target.value);
@@ -80,8 +78,8 @@ export default function AddEmployee() {
     }
 
     const handleSubmit = variables => {
-        const toInput = { name, lastName, department, gender, salary, years, selectedDate };
-
+        let now = new Date(date);
+        const toInput = { name, lastName, department, gender, salary, years, dob: now.toISOString().slice(0, 10).replace('T', ' ') };
         sampleFunc(toInput);
         setName("");
         setLastName("");
@@ -206,11 +204,9 @@ export default function AddEmployee() {
                         </Grid>
                     </Grid>
                     <Button
-                        // type="submit"
                         fullWidth
                         variant="contained"
                         color="primary"
-                //        preventDefault
                         className={classes.submit}
                         onClick={handleSubmit}
                     >
