@@ -30,7 +30,7 @@ class UpdateEmployee extends Component {
     }
 
     componentDidMount() {
-        if(this.props.location.state === 'undefined') {
+        if(typeof this.props.location.state === 'undefined') {
             returned = true;
             this.setState({
                 id: "",
@@ -43,6 +43,7 @@ class UpdateEmployee extends Component {
             })
         }
         else {
+            returned = false;
             this.setState({
                 id: this.props.location.state.id || "",
                 name: this.props.location.state.name,
