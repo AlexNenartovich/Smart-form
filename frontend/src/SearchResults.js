@@ -126,7 +126,8 @@ export default function SearchResults(props) {
                                                     department: updateEmpInfo.department,
                                                     gender: updateEmpInfo.gender,
                                                     salary: updateEmpInfo.salary,
-                                                    years: updateEmpInfo.years
+                                                    years: updateEmpInfo.years,
+                                                    dob: updateEmpInfo.dob
                                                 }
                                         }}>
                                             <TableCell align="center">{row.id}</TableCell>

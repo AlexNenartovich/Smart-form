@@ -39,7 +39,8 @@ class UpdateEmployee extends Component {
                 department: "",
                 gender: "",
                 salary: "",
-                years: ""
+                years: "",
+                dob: ""
             })
         }
         else {
@@ -52,7 +53,8 @@ class UpdateEmployee extends Component {
                 department: this.props.location.state.department,
                 gender: this.props.location.state.gender,
                 salary: this.props.location.state.salary,
-                years: this.props.location.state.years
+                years: this.props.location.state.years,
+                dob: this.props.location.state.dob
             })
         }
     }
@@ -90,6 +92,12 @@ class UpdateEmployee extends Component {
     handleYearsChange = (event) => {
         this.setState({
             years: event.target.value
+        })
+    }
+
+    handleDateChange = (event) => {
+        this.setState({
+            dob: event.target.value
         })
     }
 
@@ -270,10 +278,11 @@ class UpdateEmployee extends Component {
                                         label="Date of birth"
                                         type="date"
                                         className='textField'
-                                        defaultValue="1998-04-02"
+                                        defaultValue={this.state.dob || ""}
                                         InputLabelProps={{
                                             shrink: true
                                         }}
+                                        onChange={this.handleDateChange}
                                     />
                                 </Grid>
                             </Grid>
