@@ -44,6 +44,7 @@ class UpdateEmployee extends Component {
         }
         else {
             returned = false;
+            deleted = false;
             this.setState({
                 id: this.props.location.state.id || "",
                 name: this.props.location.state.name,
