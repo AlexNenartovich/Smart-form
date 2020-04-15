@@ -39,7 +39,7 @@ public class EmployeeDAOImp implements EmployeeDAO {
 	}
 	
 	@Override
-	public List<Employee> findByLastName() {
+	public List<Employee> highestSalaryByDep() {
 		  Session currSession = entityManager.unwrap(Session.class);
 		  Query<Employee> query = currSession.createQuery("from Employee where (department, salary) in (select department, MAX(salary) from Employee group by department) order by salary DESC", Employee.class);
 		//  query.setFirstResult(0);

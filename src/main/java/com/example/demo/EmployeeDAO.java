@@ -15,5 +15,5 @@ public interface EmployeeDAO {
 	 void delete(int id);
 	 
 	 @Query("select name from tb_emp where last_name = 'Curry' ")
-	 List<Employee> findByLastName();
+	 List<Employee> highestSalaryByDep();
 }

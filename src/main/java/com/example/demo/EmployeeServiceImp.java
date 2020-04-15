@@ -36,8 +36,8 @@ public class EmployeeServiceImp implements EmployeeService {
 	
 	@Transactional
 	 @Override
-	 public List<Employee> findByLastName() {
-		return employeeDao.findByLastName();
+	 public List<Employee> highestSalaryByDep() {
+		return employeeDao.highestSalaryByDep();
 		
 	}
 }

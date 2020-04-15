@@ -3,9 +3,7 @@ import SearchBar from 'material-ui-search-bar';
 import "./App.css";
 import {Hero} from "react-landing-page";
 import { Link } from 'react-router-dom';
-import Button from "@material-ui/core/Button/Button";
 import Grid from "@material-ui/core/Grid/Grid";
-import Typography from "@material-ui/core/Typography/Typography";
 
 class Search extends Component {
     constructor() {
@@ -13,12 +11,6 @@ class Search extends Component {
         this.state = {
             val: ""
         }
-    }
-
-    handleChange = (event) => {
-        this.setState({
-            val: event.target.value
-        })
     }
 
     handleSearch = () => {

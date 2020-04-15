@@ -50,8 +50,8 @@ public class EmployeeController {
 	 }
 	 
 	 @GetMapping("/lastname")
-	 public List<Employee> findByLastName() {
-	  return employeeService.findByLastName();
+	 public List<Employee> highestSalaryByDep() {
+	  return employeeService.highestSalaryByDep();
 	 }
 }
 
