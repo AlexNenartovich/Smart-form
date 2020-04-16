@@ -59,7 +59,7 @@ export default function SearchResults(props) {
         upDateData(body);
         if(body.length > 0) {
             for(let i = 0; i < body.length; i ++) {
-                if(body[i].lastName === searchVal)
+                if(searchVal.includes(body[i].name) || searchVal.includes(body[i].lastName) || searchVal.includes(body[i].name.concat(" ", body[i].lastName)))
                     setFound(true);
             }
         }
@@ -113,7 +113,8 @@ export default function SearchResults(props) {
                             </TableHead>
                             <TableBody>
                                 {data?.map(row => {
-                                    if (row.lastName === searchVal) {
+                                //    if (row.lastName === searchVal) {
+                                    if(searchVal.includes(row.name) || searchVal.includes(row.lastName) || searchVal.includes(row.name.concat(" ", row.lastName))) {
                                         updateEmpInfo = row;
                                         return (
                                         <TableRow key={row.lastName} component={Link}
