@@ -39,13 +39,15 @@ const useStyles = makeStyles(theme => ({
 export default function AddEmployee() {
     const classes = useStyles();
     const [firstLoad, setLoad] = React.useState(true);
-    
+
     const [name, setName] = React.useState("");
     const [lastName, setLastName] = React.useState("");
     const [department, setDepartment] = React.useState("");
     const [gender, setGender] = React.useState("");
+    const [hired, setHired] = React.useState("");
     const [salary, setSalary] = React.useState("");
-    const [years, setYears] = React.useState("");
+    const [bonus, setBonus] = React.useState("");
+    const [edlevel, setEdlevel] = React.useState("");
     const [date, setDate] = React.useState("");
 
     const handleDateChange = event => setDate(event.target.value);
@@ -53,8 +55,10 @@ export default function AddEmployee() {
     const handleLastNameChange = event => setLastName(event.target.value);
     const handlDepartmentChange = event => setDepartment(event.target.value);
     const handleGenderChange = event => setGender(event.target.value);
+    const handleHiredChange = event => setHired(event.target.value);
     const handleSalaryChange = event => setSalary(event.target.value);
-    const handleYearsChange = event => setYears(event.target.value);
+    const handleBonusChange = event => setBonus(event.target.value);
+    const handleEdlevelChange = event => setEdlevel(event.target.value);
 
     const [message, setMessage] = React.useState("Nothing saved in the session");
 
@@ -79,14 +83,16 @@ export default function AddEmployee() {
 
     const handleSubmit = variables => {
         let now = new Date(date);
-        const toInput = { name, lastName, department, gender, salary, years, dob: now.toISOString().slice(0, 10).replace('T', ' ') };
+        let hiredDate = new Date(hired);
+        const toInput = { name, lastName, department, gender, hired: hiredDate.toISOString().slice(0, 10).replace('T', ' '), salary, bonus, edlevel, dob: now.toISOString().slice(0, 10).replace('T', ' ') };
         sampleFunc(toInput);
         setName("");
         setLastName("");
         setDepartment("");
         setGender("");
         setSalary("");
-        setYears("");
+        setBonus("");
+        setEdlevel("");
     };
 
     if (firstLoad) {
@@ -163,12 +169,25 @@ export default function AddEmployee() {
                                 onChange={handleGenderChange}
                             />
                         </Grid>
-                        <Grid item xs={12} sm={6}>
+                        <Grid item xs={12}>
+                            <TextField
+                                id="date"
+                                label="Date hired"
+                                type="date"
+                                defaultValue="1985-01-01"
+                                className={classes.textField}
+                                InputLabelProps={{
+                                    shrink: true
+                                }}
+                                onChange={handleHiredChange}
+                            />
+                        </Grid>
+                        <Grid item xs={12} sm={3}>
                             <TextField
                                 variant="outlined"
                                 required
                                 fullWidth
-                                id="gender"
+                                id="salary"
                                 value={salary}
                                 label="Salary"
                                 name="salary"
@@ -176,17 +195,30 @@ export default function AddEmployee() {
                                 onChange={handleSalaryChange}
                             />
                         </Grid>
+                        <Grid item xs={12} sm={3}>
+                            <TextField
+                                variant="outlined"
+                                required
+                                fullWidth
+                                id="bonus"
+                                value={bonus}
+                                label="Bonus"
+                                name="bonus"
+                                autoComplete="bonus"
+                                onChange={handleBonusChange}
+                            />
+                        </Grid>
                         <Grid item xs={12} sm={6}>
                             <TextField
                                 variant="outlined"
                                 required
                                 fullWidth
                                 id="gender"
-                                value={years}
-                                label="Years of Experience"
-                                name="years of work experience"
-                                autoComplete="years of work experience"
-                                onChange={handleYearsChange}
+                                value={edlevel}
+                                label="Years of Education"
+                                name="years of education"
+                                autoComplete="years of education"
+                                onChange={handleEdlevelChange}
                             />
                         </Grid>
                         <Grid item xs={12}>
@@ -194,7 +226,7 @@ export default function AddEmployee() {
                                 id="date"
                                 label="Date of birth"
                                 type="date"
-                                defaultValue="1998-04-02"
+                                defaultValue="1985-01-01"
                                 className={classes.textField}
                                 InputLabelProps={{
                                     shrink: true

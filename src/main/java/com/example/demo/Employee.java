@@ -23,9 +23,14 @@ public class Employee {
 	@Column
 	 private String department;
 	@Column
+	@JsonFormat(pattern="yyy-MM-dd")
+	 private Date hired;
+	@Column
 	 private Integer salary;
 	@Column
-	 private Integer years;
+	 private Integer bonus;
+	@Column
+	 private Integer edlevel;
 	@Column
 	@JsonFormat(pattern="yyyy-MM-dd")
 	 private Date dob;
@@ -60,17 +65,29 @@ public class Employee {
 	public void setDepartment(String department) {
 	  this.department = department;
 	 }
+	public Date getHired() {
+	   return hired;
+	}
+	public void setHired(Date hired) {
+	   this.hired = hired;
+	}
 	public Integer getSalary() {
 		return salary;
 	}
 	public void setSalary(Integer salary) {
 		this.salary = salary;
 	}
-	public Integer getYears() {
-		return years;
+	public Integer getBonus() {
+		return bonus;
 	}
-	public void setYears(Integer years) {
-		this.years = years;
+	public void setBonus(Integer bonus) {
+		this.bonus = bonus;
+	}
+	public Integer getEdlevel() {
+		return edlevel;
+	}
+	public void setEdlevel(Integer edlevel) {
+		this.edlevel = edlevel;
 	}
 	public Date getDob() {
 	  return dob;

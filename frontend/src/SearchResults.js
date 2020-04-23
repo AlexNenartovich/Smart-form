@@ -106,14 +106,15 @@ export default function SearchResults(props) {
                                     <TableCell align="center">Last Name</TableCell>
                                     <TableCell align="center">Department</TableCell>
                                     <TableCell align="center">Gender</TableCell>
+                                    <TableCell align="center">Date Hired</TableCell>
                                     <TableCell align="center">Salary</TableCell>
-                                    <TableCell align="center">Years of Experiencer</TableCell>
-                                    <TableCell align="center">Dob</TableCell>
+                                    <TableCell align="center">Bonus</TableCell>
+                                    <TableCell align="center">Years of Education</TableCell>
+                                    <TableCell align="center">Date of Birth</TableCell>
                                 </TableRow>
                             </TableHead>
                             <TableBody>
                                 {data?.map(row => {
-                                //    if (row.lastName === searchVal) {
                                     if(searchVal.includes(row.name) || searchVal.includes(row.lastName) || searchVal.includes(row.name.concat(" ", row.lastName))) {
                                         updateEmpInfo = row;
                                         return (
@@ -126,8 +127,10 @@ export default function SearchResults(props) {
                                                     lastName: updateEmpInfo.lastName,
                                                     department: updateEmpInfo.department,
                                                     gender: updateEmpInfo.gender,
+                                                    hired: updateEmpInfo.hired,
                                                     salary: updateEmpInfo.salary,
-                                                    years: updateEmpInfo.years,
+                                                    bonus: updateEmpInfo.bonus,
+                                                    edlevel: updateEmpInfo.edlevel,
                                                     dob: updateEmpInfo.dob
                                                 }
                                         }}>
@@ -136,8 +139,10 @@ export default function SearchResults(props) {
                                             <TableCell align="center">{row.lastName}</TableCell>
                                             <TableCell align="center">{row.department}</TableCell>
                                             <TableCell align="center">{row.gender}</TableCell>
+                                            <TableCell align="center">{row.hired}</TableCell>
                                             <TableCell align="center">{row.salary}</TableCell>
-                                            <TableCell align="center">{row.years}</TableCell>
+                                            <TableCell align="center">{row.bonus}</TableCell>
+                                            <TableCell align="center">{row.edlevel}</TableCell>
                                             <TableCell align="center">{row.dob}</TableCell>
                                         </TableRow>
                                         )}})}

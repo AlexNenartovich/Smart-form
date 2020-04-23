@@ -97,9 +97,11 @@ export default function SimpleTable() {
                                 <TableCell align="center">Last Name</TableCell>
                                 <TableCell align="center">Department</TableCell>
                                 <TableCell align="center">Gender</TableCell>
+                                <TableCell align="center">Date Hired</TableCell>
                                 <TableCell align="center">Salary</TableCell>
-                                <TableCell align="center">Years of Experience</TableCell>
-                                <TableCell align="center">Dob</TableCell>
+                                <TableCell align="center">Bonus</TableCell>
+                                <TableCell align="center">Years of Education</TableCell>
+                                <TableCell align="center">Date of Birth</TableCell>
                             </TableRow>
                         </TableHead>
                         <TableBody>
@@ -110,8 +112,10 @@ export default function SimpleTable() {
                                     <TableCell align="center">{row.lastName}</TableCell>
                                     <TableCell align="center">{row.department}</TableCell>
                                     <TableCell align="center">{row.gender}</TableCell>
+                                    <TableCell align="center">{row.hired}</TableCell>
                                     <TableCell align="center">{row.salary}</TableCell>
-                                    <TableCell align="center">{row.years}</TableCell>
+                                    <TableCell align="center">{row.bonus}</TableCell>
+                                    <TableCell align="center">{row.edlevel}</TableCell>
                                     <TableCell align="center">{row.dob}</TableCell>
                                 </TableRow>
                             ))}

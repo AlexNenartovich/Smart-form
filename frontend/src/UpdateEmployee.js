@@ -22,11 +22,14 @@ class UpdateEmployee extends Component {
             lastName: "",
             department: "",
             gender: "",
+            hired: "",
             salary: "",
-            years: "",
+            bonus: "",
+            edlevel: "",
             dob: ""
         }
         this.deleteEmp = this.deleteEmp.bind(this);
+        this.updateEmployee = this.updateEmployee.bind(this);
     }
 
     componentDidMount() {
@@ -38,8 +41,10 @@ class UpdateEmployee extends Component {
                 lastName: "",
                 department: "",
                 gender: "",
+                hired: "",
                 salary: "",
-                years: "",
+                bonus: "",
+                edlevel: "",
                 dob: ""
             })
         }
@@ -52,8 +57,10 @@ class UpdateEmployee extends Component {
                 lastName: this.props.location.state.lastName,
                 department: this.props.location.state.department,
                 gender: this.props.location.state.gender,
+                hired: this.props.location.state.hired,
                 salary: this.props.location.state.salary,
-                years: this.props.location.state.years,
+                bonus: this.props.location.state.bonus,
+                edlevel: this.props.location.state.edlevel,
                 dob: this.props.location.state.dob
             })
         }
@@ -83,15 +90,27 @@ class UpdateEmployee extends Component {
         })
     }
 
+    handleHiredChange = (event) => {
+        this.setState({
+            hired: event.target.value
+        })
+    }
+
     handleSalaryChange = (event) => {
         this.setState({
             salary: event.target.value
         })
     }
 
-    handleYearsChange = (event) => {
+    handleBonusChange = (event) => {
         this.setState({
-            years: event.target.value
+            bonus: event.target.value
+        })
+    }
+
+    handleEdlevelChange = (event) => {
+        this.setState({
+            edlevel: event.target.value
         })
     }
 
@@ -128,8 +147,10 @@ class UpdateEmployee extends Component {
                         lastName: "",
                         department: "",
                         gender: "",
+                        hired: "",
                         salary: "",
-                        years: "",
+                        bonus: "",
+                        edlevel: "",
                         dob: ""
                     })
                 }
@@ -143,7 +164,7 @@ class UpdateEmployee extends Component {
         }
     }
 
-    updateEmployee = () => {
+     async updateEmployee () {
         if(returned) {
             window.alert("Your previous request has been fulfilled. Please choose between New search or View employees options");
         }
@@ -151,7 +172,7 @@ class UpdateEmployee extends Component {
             window.alert("This employee has already been deleted from database. Please choose between New search or View employees options")
         }
         else {
-            let response = fetch("/api/employee", {
+            let response = await fetch("/api/employee", {
                 method: "PUT", // *GET, POST, PUT, DELETE, etc.
                 mode: "cors", // no-cors, *cors, same-origin
                 cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
@@ -166,16 +187,28 @@ class UpdateEmployee extends Component {
             })
                 .then((res) => res.json())
                 .catch((error) => console.log(error));
-            if (response.id !== 'undefined') {
-                this.setState({
-                    message: "Employee information has been updated"
-                })
-            }
-            else {
-                this.setState({
-                    message: "Update failed. Please try again"
-                })
-            }
+
+
+            response.id ? this.setState({
+                message: "Employee information has been updated"
+            }) :  this.setState({
+                message: "Update failed. Please try again"
+            })
+
+
+    //        if (modified) {
+    //            console.log(body.id);
+    //            this.setState({
+    //                message: "Employee information has been updated"
+    //            })
+    //        }
+    //        else {
+       //         console.log(body);
+    //            this.setState({
+    //                message: "Update failed. Please try again"
+     //           })
+     //           modified = true;
+     //       }
         }
     }
 
@@ -246,7 +279,23 @@ class UpdateEmployee extends Component {
                                         onChange={this.handleGenderChange}
                                     />
                                 </Grid>
-                                <Grid item xs={12} sm={6}>
+                                <Grid item xs={12} sm={12}>
+                                    <TextField
+                                        variant="outlined"
+                                        required
+                                        fullWidth
+                                        type="date"
+                                        id="hired"
+                                        value={this.state.hired || ""}
+                                        label="Date Hired"
+                                        name="hired"
+                                        InputLabelProps={{
+                                            shrink: true
+                                        }}
+                                        onChange={this.handleHiredChange}
+                                    />
+                                </Grid>
+                                <Grid item xs={12} sm={3}>
                                     <TextField
                                         variant="outlined"
                                         required
@@ -259,17 +308,30 @@ class UpdateEmployee extends Component {
                                         onChange={this.handleSalaryChange}
                                     />
                                 </Grid>
+                                <Grid item xs={12} sm={3}>
+                                    <TextField
+                                        variant="outlined"
+                                        required
+                                        fullWidth
+                                        id="bonus"
+                                        value={this.state.bonus || ""}
+                                        label="Bonus"
+                                        name="bonus"
+                                        autoComplete="bonus"
+                                        onChange={this.handleBonusChange}
+                                    />
+                                </Grid>
                                 <Grid item xs={12} sm={6}>
                                     <TextField
                                         variant="outlined"
                                         required
                                         fullWidth
-                                        id="years"
-                                        value={this.state.years || ""}
-                                        label="Years of Experience"
-                                        name="years"
-                                        autoComplete="years"
-                                        onChange={this.handleYearsChange}
+                                        id="edlevel"
+                                        value={this.state.edlevel || ""}
+                                        label="Years of Education"
+                                        name="edlevel"
+                                        autoComplete="edlevel"
+                                        onChange={this.handleEdlevelChange}
                                     />
                                 </Grid>
                                 <Grid item xs={12}>
