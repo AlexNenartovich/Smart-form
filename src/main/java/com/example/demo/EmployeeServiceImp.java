@@ -40,5 +40,19 @@ public class EmployeeServiceImp implements EmployeeService {
 		return employeeDao.highestSalaryByDep();
 		
 	}
+	
+	@Transactional
+	 @Override
+	 public List<Employee> highestBonusByDep() {
+		return employeeDao.highestBonusByDep();
+		
+	}
+	
+	@Transactional
+	 @Override
+	 public List<Employee> longestTenure() {
+		return employeeDao.longestTenure();
+		
+	}
 }
 

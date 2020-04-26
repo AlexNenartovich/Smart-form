@@ -53,5 +53,15 @@ public class EmployeeController {
 	 public List<Employee> highestSalaryByDep() {
 	  return employeeService.highestSalaryByDep();
 	 }
+	 
+	 @GetMapping("/bonus")
+	 public List<Employee> highestBonusByDep() {
+	  return employeeService.highestBonusByDep();
+	 }
+	 
+	 @GetMapping("/tenure")
+	 public List<Employee> longestTenure() {
+	  return employeeService.longestTenure();
+	 }
 }
 

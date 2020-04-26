@@ -12,4 +12,8 @@ public interface EmployeeService {
 	 void delete(int id);
 	 
 	 List<Employee> highestSalaryByDep();
+	 
+	 List<Employee> highestBonusByDep();
+	 
+	 List<Employee> longestTenure();
 }

@@ -34,6 +34,42 @@ class Analytics extends Component {
                         View
                     </Button>
                 </div>
+                <div className='analytics'>
+                    <h className="label">
+                        View employees with highest bonus in each department
+                    </h>
+                    <Button
+                        component={Link}
+                        variant="contained"
+                        color="primary"
+                        to={{
+                            pathname: "/view",
+                            state: {
+                                route: "bonus"
+                            }
+                        }}
+                    >
+                        View
+                    </Button>
+                </div>
+                <div className='employ'>
+                    <h className="empl-label">
+                        View employees with longest tenure in each department
+                    </h>
+                    <Button
+                        component={Link}
+                        variant="contained"
+                        color="primary"
+                        to={{
+                            pathname: "/view",
+                            state: {
+                                route: "tenure"
+                            }
+                        }}
+                    >
+                        View
+                    </Button>
+                </div>
             </Hero>
         )
     }

@@ -104,6 +104,7 @@ AddButton {
 
 .analytics {
   display: flex;
+  padding-bottom: 20px;
 }
 
 .container {
@@ -114,5 +115,10 @@ AddButton {
 .label {
   padding-right: 50px;
   padding-top: 8px;
+  font-weight: bold;
+}
+
+.empl-label {
+   padding-right: 48px;
   font-weight: bold;
 }
