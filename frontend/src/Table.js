@@ -16,6 +16,9 @@ import { Hero} from "react-landing-page";
 import { useLocation } from 'react-router-dom';
 
 const useStyles = makeStyles(theme => ({
+    head: {
+      fontWeight: "bold"
+    },
     table: {
         minWidth: 600
     },
@@ -50,7 +53,6 @@ export default function SimpleTable() {
     const [data, upDateData] = React.useState([]);
     const [firstLoad, setLoad] = React.useState(true);
     let isLoading = true;
-
 
     let location = useLocation();
     let route = location.state.route;
@@ -92,16 +94,16 @@ export default function SimpleTable() {
                     <Table className={classes.table} aria-label="simple table">
                         <TableHead>
                             <TableRow>
-                                <TableCell align="center">Id</TableCell>
-                                <TableCell align="center">First Name</TableCell>
-                                <TableCell align="center">Last Name</TableCell>
-                                <TableCell align="center">Department</TableCell>
-                                <TableCell align="center">Gender</TableCell>
-                                <TableCell align="center">Date Hired</TableCell>
-                                <TableCell align="center">Salary</TableCell>
-                                <TableCell align="center">Bonus</TableCell>
-                                <TableCell align="center">Years of Education</TableCell>
-                                <TableCell align="center">Date of Birth</TableCell>
+                                <TableCell className={classes.head} align="center">Id</TableCell>
+                                <TableCell className={classes.head} align="center">First Name</TableCell>
+                                <TableCell className={classes.head} align="center">Last Name</TableCell>
+                                <TableCell className={classes.head} align="center">Department</TableCell>
+                                <TableCell className={classes.head} align="center">Gender</TableCell>
+                                <TableCell className={classes.head} align="center">Date Hired</TableCell>
+                                <TableCell className={classes.head} align="center">Salary</TableCell>
+                                <TableCell className={classes.head} align="center">Bonus</TableCell>
+                                <TableCell className={classes.head} align="center">Years of Education</TableCell>
+                                <TableCell className={classes.head} align="center">Date of Birth</TableCell>
                             </TableRow>
                         </TableHead>
                         <TableBody>

@@ -44,11 +44,11 @@ export default function AddEmployee() {
     const [lastName, setLastName] = React.useState("");
     const [department, setDepartment] = React.useState("");
     const [gender, setGender] = React.useState("");
-    const [hired, setHired] = React.useState("");
+    const [hired, setHired] = React.useState("2015-01-01");
     const [salary, setSalary] = React.useState("");
     const [bonus, setBonus] = React.useState("");
     const [edlevel, setEdlevel] = React.useState("");
-    const [date, setDate] = React.useState("");
+    const [date, setDate] = React.useState("1985-01-01");
 
     const handleDateChange = event => setDate(event.target.value);
     const handleNameChange = event => setName(event.target.value);
@@ -174,7 +174,7 @@ export default function AddEmployee() {
                                 id="date"
                                 label="Date hired"
                                 type="date"
-                                defaultValue="1985-01-01"
+                                value={hired}
                                 className={classes.textField}
                                 InputLabelProps={{
                                     shrink: true
@@ -226,7 +226,7 @@ export default function AddEmployee() {
                                 id="date"
                                 label="Date of birth"
                                 type="date"
-                                defaultValue="1985-01-01"
+                                value={date}
                                 className={classes.textField}
                                 InputLabelProps={{
                                     shrink: true
