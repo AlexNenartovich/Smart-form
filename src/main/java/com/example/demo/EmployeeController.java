@@ -63,5 +63,15 @@ public class EmployeeController {
 	 public List<Employee> longestTenure() {
 	  return employeeService.longestTenure();
 	 }
+	 
+	 @GetMapping("/edlevel")
+	 public List<Employee> highestEdLevelByDep() {
+	  return employeeService.highestEdLevelByDep();
+	 }
+	 
+	 @GetMapping("/longhired")
+	 public List<Employee> salaryWithTenure() {
+	  return employeeService.salaryWithTenure();
+	 }
 }
 

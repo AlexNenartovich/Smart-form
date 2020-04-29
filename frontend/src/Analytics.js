@@ -70,6 +70,42 @@ class Analytics extends Component {
                         View
                     </Button>
                 </div>
+                <div className='employ'>
+                    <h className="ed-label">
+                        View employees with highest education level in each department
+                    </h>
+                    <Button
+                        component={Link}
+                        variant="contained"
+                        color="primary"
+                        to={{
+                            pathname: "/view",
+                            state: {
+                                route: "edlevel"
+                            }
+                        }}
+                    >
+                        View
+                    </Button>
+                </div>
+                <div className='employ'>
+                    <h className="sal-tenure">
+                        View employees with 10 highest salaries employed for at least 5 years
+                    </h>
+                    <Button
+                        component={Link}
+                        variant="contained"
+                        color="primary"
+                        to={{
+                            pathname: "/view",
+                            state: {
+                                route: "longhired"
+                            }
+                        }}
+                    >
+                        View
+                    </Button>
+                </div>
             </Hero>
         )
     }

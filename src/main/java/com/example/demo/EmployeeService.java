@@ -16,4 +16,8 @@ public interface EmployeeService {
 	 List<Employee> highestBonusByDep();
 	 
 	 List<Employee> longestTenure();
+	 
+     List<Employee> highestEdLevelByDep();
+	 
+	 List<Employee> salaryWithTenure();
 }

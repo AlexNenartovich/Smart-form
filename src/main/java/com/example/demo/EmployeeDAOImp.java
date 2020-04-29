@@ -42,8 +42,6 @@ public class EmployeeDAOImp implements EmployeeDAO {
 	public List<Employee> highestSalaryByDep() {
 		  Session currSession = entityManager.unwrap(Session.class);
 		  Query<Employee> query = currSession.createQuery("from Employee where (department, salary) in (select department, MAX(salary) from Employee group by department) order by salary DESC", Employee.class);
-		//  query.setFirstResult(0);
-		//  query.setMaxResults(3);
 		  List<Employee> list = query.getResultList();
 		  return list;
 		 }
@@ -51,8 +49,6 @@ public class EmployeeDAOImp implements EmployeeDAO {
 	public List<Employee> highestBonusByDep() {
 		Session currSession = entityManager.unwrap(Session.class);
 		  Query<Employee> query = currSession.createQuery("from Employee where (department, bonus) in (select department, MAX(bonus) from Employee group by department) order by bonus DESC", Employee.class);
-		//  query.setFirstResult(0);
-		//  query.setMaxResults(3);
 		  List<Employee> list = query.getResultList();
 		  return list;
 	}
@@ -60,9 +56,23 @@ public class EmployeeDAOImp implements EmployeeDAO {
 	public List<Employee> longestTenure() {
 	Session currSession = entityManager.unwrap(Session.class);
 	  Query<Employee> query = currSession.createQuery("from Employee where (department, hired) in (select department, MIN(hired) from Employee group by department) order by hired ASC", Employee.class);
-	//  query.setFirstResult(0);
-	//  query.setMaxResults(3);
 	  List<Employee> list = query.getResultList();
 	  return list;
+	}
+	
+	public List<Employee> highestEdLevelByDep() {
+		Session currSession = entityManager.unwrap(Session.class);
+		  Query<Employee> query = currSession.createQuery("from Employee where (department, edlevel) in (select department, MIN(edlevel) from Employee group by department) order by hired ASC", Employee.class);
+		  List<Employee> list = query.getResultList();
+		  return list;
+	}
+	
+	public List<Employee> salaryWithTenure() {
+		Session currSession = entityManager.unwrap(Session.class);
+		  Query<Employee> query = currSession.createSQLQuery("select * from tb_emp where hired < DATE_SUB(CURDATE(), INTERVAL 5 YEAR) order by salary DESC").addEntity(Employee.class);
+		  query.setFirstResult(0);
+		  query.setMaxResults(10);
+		  List<Employee> list = query.list();
+		  return list;
 	}
 }
