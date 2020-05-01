@@ -62,7 +62,7 @@ public class EmployeeDAOImp implements EmployeeDAO {
 	
 	public List<Employee> highestEdLevelByDep() {
 		Session currSession = entityManager.unwrap(Session.class);
-		  Query<Employee> query = currSession.createQuery("from Employee where (department, edlevel) in (select department, MIN(edlevel) from Employee group by department) order by hired ASC", Employee.class);
+		  Query<Employee> query = currSession.createQuery("from Employee where (department, edlevel) in (select department, MAX(edlevel) from Employee group by department) order by edlevel DESC", Employee.class);
 		  List<Employee> list = query.getResultList();
 		  return list;
 	}
@@ -72,6 +72,20 @@ public class EmployeeDAOImp implements EmployeeDAO {
 		  Query<Employee> query = currSession.createSQLQuery("select * from tb_emp where hired < DATE_SUB(CURDATE(), INTERVAL 5 YEAR) order by salary DESC").addEntity(Employee.class);
 		  query.setFirstResult(0);
 		  query.setMaxResults(10);
+		  List<Employee> list = query.list();
+		  return list;
+	}
+	
+	public List<Employee> highestGenderSalary() {
+		Session currSession = entityManager.unwrap(Session.class);
+		  Query<Employee> query = currSession.createQuery("from Employee where (gender, salary) in (select gender, MAX(salary) from Employee group by gender) order by salary DESC", Employee.class);
+		  List<Employee> list = query.getResultList();
+		  return list;
+	}
+	
+	public List<Employee> deserveBonus() {
+		Session currSession = entityManager.unwrap(Session.class);
+		  Query<Employee> query = currSession.createSQLQuery("select * from tb_emp where hired < DATE_SUB(CURDATE(), INTERVAL 5 YEAR) and bonus = 0 order by hired ASC").addEntity(Employee.class);
 		  List<Employee> list = query.list();
 		  return list;
 	}

@@ -73,5 +73,15 @@ public class EmployeeController {
 	 public List<Employee> salaryWithTenure() {
 	  return employeeService.salaryWithTenure();
 	 }
+	 
+	 @GetMapping("/gensal")
+	 public List<Employee> highestGenderSalary() {
+	  return employeeService.highestGenderSalary();
+	 }
+	 
+	 @GetMapping("/desbonus")
+	 public List<Employee> deserveBonus() {
+	  return employeeService.deserveBonus();
+	 }
 }
 

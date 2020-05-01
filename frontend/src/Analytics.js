@@ -106,6 +106,42 @@ class Analytics extends Component {
                         View
                     </Button>
                 </div>
+                <div className='employ'>
+                    <h className="gender-sal">
+                        View employees with highest salaries among male and female workers
+                    </h>
+                    <Button
+                        component={Link}
+                        variant="contained"
+                        color="primary"
+                        to={{
+                            pathname: "/view",
+                            state: {
+                                route: "gensal"
+                            }
+                        }}
+                    >
+                        View
+                    </Button>
+                </div>
+                <div className='employ'>
+                <h className="des-bonus">
+                    View workers employed for at least 5 years and have no bonus
+                </h>
+                <Button
+                    component={Link}
+                    variant="contained"
+                    color="primary"
+                    to={{
+                        pathname: "/view",
+                        state: {
+                            route: "desbonus"
+                        }
+                    }}
+                >
+                    View
+                </Button>
+            </div>
             </Hero>
         )
     }
