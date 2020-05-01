@@ -128,21 +128,21 @@ AddButton {
 }
 
 .ed-label {
-  padding-right: 90px;
+  padding-right: 85px;
   font-weight: bold;
 }
 
 .sal-tenure {
   font-weight: bold;
-  padding-right: 55px;
+  padding-right: 48px;
 }
 
 .gender-sal {
   font-weight: bold;
-  padding-right: 50px;
+  padding-right: 45px;
 }
 
 .des-bonus {
   font-weight: bold;
-  padding-right: 104px;
+  padding-right: 110px;
 }
