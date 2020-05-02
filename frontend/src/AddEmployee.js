@@ -3,6 +3,11 @@ import Avatar from "@material-ui/core/Avatar";
 import Button from "@material-ui/core/Button";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import TextField from "@material-ui/core/TextField";
+
+import Select from '@material-ui/core/Select';
+import InputLabel from '@material-ui/core/InputLabel';
+import FormControl from '@material-ui/core/FormControl';
+
 import { Link } from "react-router-dom";
 import Grid from "@material-ui/core/Grid";
 import GroupIcon from "@material-ui/icons/Group";
@@ -53,7 +58,7 @@ export default function AddEmployee() {
     const handleDateChange = event => setDate(event.target.value);
     const handleNameChange = event => setName(event.target.value);
     const handleLastNameChange = event => setLastName(event.target.value);
-    const handlDepartmentChange = event => setDepartment(event.target.value);
+    const handleDepartmentChange = event => setDepartment(event.target.value);
     const handleGenderChange = event => setGender(event.target.value);
     const handleHiredChange = event => setHired(event.target.value);
     const handleSalaryChange = event => setSalary(event.target.value);
@@ -145,31 +150,49 @@ export default function AddEmployee() {
                                 onChange={handleLastNameChange}
                             />
                         </Grid>
-                        <Grid item xs={12} sm={6}>
-                            <TextField
-                                autoComplete="department"
-                                name="department"
-                                variant="outlined"
-                                required
-                                fullWidth
-                                value={department}
-                                id="department"
-                                label="Department"
-                                onChange={handlDepartmentChange}
-                            />
+                        <Grid item xs={12} xs={6}>
+                            <FormControl fullWidth variant="outlined">
+                                <InputLabel htmlFor="outlined-gender-native-simple">Department</InputLabel>
+                                <Select
+                                    variant="outlined"
+                                    value={department}
+                                    native
+                                    label="Department"
+                                    inputProps={{
+                                        name: 'department',
+                                        id: 'outlined-native-simple',
+                                    }}
+                                    onChange={handleDepartmentChange}
+                                >
+                                    <option aria-label="None" value="" />
+                                    <option>Management</option>
+                                    <option>Maintenance</option>
+                                    <option>Machinery</option>
+                                    <option>Packaging</option>
+                                    <option>Processing</option>
+                                    <option>Shipment</option>
+                                </Select>
+                            </FormControl>
                         </Grid>
-                        <Grid item xs={12} sm={6}>
-                            <TextField
-                                variant="outlined"
-                                required
-                                fullWidth
-                                id="gender"
-                                value={gender}
-                                label="Gender"
-                                name="gender"
-                                autoComplete="gender"
-                                onChange={handleGenderChange}
-                            />
+                        <Grid item xs={12} xs={6}>
+                            <FormControl fullWidth variant="outlined">
+                                <InputLabel htmlFor="outlined-gender-native-simple">Gender</InputLabel>
+                                    <Select
+                                        variant="outlined"
+                                        value={gender}
+                                        native
+                                        label="Gender"
+                                        inputProps={{
+                                            name: 'gender',
+                                            id: 'outlined-native-simple',
+                                        }}
+                                        onChange={handleGenderChange}
+                                    >
+                                    <option aria-label="None" value="" />
+                                    <option>Male</option>
+                                    <option>Female</option>
+                                </Select>
+                            </FormControl>
                         </Grid>
                         <Grid item xs={12}>
                             <TextField
