@@ -14,4 +14,5 @@ public interface EmployeeService {
 	List<Employee> salaryWithTenure();
 	List<Employee> highestGenderSalary();
 	List<Employee> deserveBonus();
+	List<Employee> lowerAveSalary();
 }

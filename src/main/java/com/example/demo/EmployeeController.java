@@ -83,5 +83,10 @@ public class EmployeeController {
 	 public List<Employee> deserveBonus() {
 	  return employeeService.deserveBonus();
 	 }
+	 
+	 @GetMapping("/lowersal")
+	 public List<Employee> lowerAveSalary() {
+	  return employeeService.lowerAveSalary();
+	 }
 }
 

@@ -125,23 +125,41 @@ class Analytics extends Component {
                     </Button>
                 </div>
                 <div className='employ'>
-                <h className="des-bonus">
-                    View workers employed for at least 5 years and have no bonus
-                </h>
-                <Button
-                    component={Link}
-                    variant="contained"
-                    color="primary"
-                    to={{
-                        pathname: "/view",
-                        state: {
-                            route: "desbonus"
-                        }
-                    }}
-                >
-                    View
-                </Button>
-            </div>
+                    <h className="des-bonus">
+                        View workers employed for at least 5 years who have no bonus
+                    </h>
+                    <Button
+                        component={Link}
+                        variant="contained"
+                        color="primary"
+                        to={{
+                            pathname: "/view",
+                            state: {
+                                route: "desbonus"
+                            }
+                        }}
+                    >
+                        View
+                    </Button>
+                </div>
+                <div className='employ'>
+                    <h className="lower-sal">
+                        View employees earning lower salary than average in their department
+                    </h>
+                    <Button
+                        component={Link}
+                        variant="contained"
+                        color="primary"
+                        to={{
+                            pathname: "/view",
+                            state: {
+                                route: "lowersal"
+                            }
+                        }}
+                    >
+                        View
+                    </Button>
+                </div>
             </Hero>
         )
     }

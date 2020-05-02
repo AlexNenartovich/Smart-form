@@ -60,7 +60,7 @@ export default function AddEmployee() {
     const handleBonusChange = event => setBonus(event.target.value);
     const handleEdlevelChange = event => setEdlevel(event.target.value);
 
-    const [message, setMessage] = React.useState("Nothing saved in the session");
+    const [message, setMessage] = React.useState("Nothing has been saved so far");
 
     async function sampleFunc(toInput) {
 
@@ -93,6 +93,8 @@ export default function AddEmployee() {
         setSalary("");
         setBonus("");
         setEdlevel("");
+        setHired("2015-01-01");
+        setDate("1985-01-01");
     };
 
     if (firstLoad) {
@@ -256,7 +258,7 @@ export default function AddEmployee() {
                     </Grid>
                 </form>
                 <Typography style={{ margin: 7 }} variant="body1">
-                    Status: {message}
+                    Session status: {message}
                 </Typography>
             </div>
         </Container>

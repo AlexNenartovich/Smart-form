@@ -144,5 +144,10 @@ AddButton {
 
 .des-bonus {
   font-weight: bold;
-  padding-right: 110px;
+  padding-right: 100px;
+}
+
+.lower-sal {
+  font-weight: bold;
+  padding-right: 47px;
 }

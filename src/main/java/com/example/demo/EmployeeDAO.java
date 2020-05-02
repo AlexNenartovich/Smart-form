@@ -17,4 +17,5 @@ public interface EmployeeDAO {
 	List<Employee> salaryWithTenure();
 	List<Employee> highestGenderSalary();
 	List<Employee> deserveBonus();
+	List<Employee> lowerAveSalary();
 }

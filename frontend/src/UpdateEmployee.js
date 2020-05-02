@@ -194,21 +194,6 @@ class UpdateEmployee extends Component {
             }) :  this.setState({
                 message: "Update failed. Please try again"
             })
-
-
-    //        if (modified) {
-    //            console.log(body.id);
-    //            this.setState({
-    //                message: "Employee information has been updated"
-    //            })
-    //        }
-    //        else {
-       //         console.log(body);
-    //            this.setState({
-    //                message: "Update failed. Please try again"
-     //           })
-     //           modified = true;
-     //       }
         }
     }
 
@@ -373,7 +358,7 @@ class UpdateEmployee extends Component {
                     </div>
                 </div>
                 <Typography style={{ margin: 7 }} variant="body1">
-                    Status: {this.state.message}
+                    Session status: {this.state.message}
                 </Typography>
                 <Link to="/search">
                     {" "}

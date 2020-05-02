@@ -85,7 +85,16 @@ public class EmployeeDAOImp implements EmployeeDAO {
 	
 	public List<Employee> deserveBonus() {
 		Session currSession = entityManager.unwrap(Session.class);
+		 @SuppressWarnings("unchecked")
 		  Query<Employee> query = currSession.createSQLQuery("select * from tb_emp where hired < DATE_SUB(CURDATE(), INTERVAL 5 YEAR) and bonus = 0 order by hired ASC").addEntity(Employee.class);
+		  List<Employee> list = query.list();
+		  return list;
+	}
+	
+	public List<Employee> lowerAveSalary() {
+		Session currSession = entityManager.unwrap(Session.class);
+		 @SuppressWarnings("unchecked")
+		  Query<Employee> query = currSession.createSQLQuery("select * from tb_emp E1 where salary < (select AVG(salary) from tb_emp where department = E1.department) order by salary ASC").addEntity(Employee.class);
 		  List<Employee> list = query.list();
 		  return list;
 	}

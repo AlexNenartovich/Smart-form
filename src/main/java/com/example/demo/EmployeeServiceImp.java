@@ -77,5 +77,11 @@ public class EmployeeServiceImp implements EmployeeService {
 	 public List<Employee> deserveBonus() {
 		return employeeDao.deserveBonus();
 	}
+	
+	@Transactional
+	 @Override
+	 public List<Employee> lowerAveSalary() {
+		return employeeDao.lowerAveSalary();
+	}
 }
 
