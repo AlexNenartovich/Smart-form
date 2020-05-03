@@ -113,13 +113,13 @@ AddButton {
 }
 
 .label {
-  padding-right: 150px;
+  padding-right: 255px;
   padding-top: 8px;
   font-weight: bold;
 }
 
 .empl-label {
-   padding-right: 150px;
+   padding-right: 255px;
   font-weight: bold;
 }
 
@@ -128,26 +128,36 @@ AddButton {
 }
 
 .ed-label {
-  padding-right: 85px;
+  padding-right: 190px;
   font-weight: bold;
 }
 
 .sal-tenure {
   font-weight: bold;
-  padding-right: 48px;
+  padding-right: 153px;
 }
 
 .gender-sal {
   font-weight: bold;
-  padding-right: 45px;
+  padding-right: 150px;
 }
 
 .des-bonus {
   font-weight: bold;
-  padding-right: 106px;
+  padding-right: 211px;
 }
 
 .lower-sal {
+  font-weight: bold;
+  padding-right: 151px;
+}
+
+.rich-young {
+  font-weight: bold;
+  padding-right: 220px;
+}
+
+.underpaid {
   font-weight: bold;
   padding-right: 46px;
 }

@@ -63,7 +63,9 @@ class LandingPage extends Component {
                                 to={{
                                     pathname: "/view",
                                     state:
-                                        {route: "employee"}
+                                        {route: "employee",
+                                         header: "Viewing All Employees Currently in the Database"
+                                        }
                                 }
                                 }
                                 fullWidth

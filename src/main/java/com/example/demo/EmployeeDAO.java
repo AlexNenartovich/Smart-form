@@ -18,4 +18,6 @@ public interface EmployeeDAO {
 	List<Employee> highestGenderSalary();
 	List<Employee> deserveBonus();
 	List<Employee> lowerAveSalary();
+	List<Employee> underpaidEdLevel();
+	List<Employee> richYoung();
 }

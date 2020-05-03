@@ -85,10 +85,6 @@ export default function SearchResults(props) {
                 <Avatar className={classes.avatar}>
                     <GroupIcon />
                 </Avatar>
-                <Typography component="h1" variant="h5">
-                    Employee Directory
-                </Typography>
-
                 {isLoading ? (
                     <CircularProgress />
                 ) : (

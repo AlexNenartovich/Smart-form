@@ -388,7 +388,8 @@ class UpdateEmployee extends Component {
                 </Link>
                 <Link to={{pathname: "/view",
                         state: {
-                           route: "employee"
+                           route: "employee",
+                            header: "Viewing All Employees Currently in the Database"
                         }
                 }}>
                     {" "}

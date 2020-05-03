@@ -27,7 +27,8 @@ class Analytics extends Component {
                         to={{
                             pathname: "/view",
                             state: {
-                                route: "lastname"
+                                route: "lastname",
+                                header: "Employees With the Highest Salary in Each Department"
                             }
                         }}
                     >
@@ -45,7 +46,8 @@ class Analytics extends Component {
                         to={{
                             pathname: "/view",
                             state: {
-                                route: "bonus"
+                                route: "bonus",
+                                header: "Employees With the Highest Bonus in Each Department"
                             }
                         }}
                     >
@@ -63,7 +65,8 @@ class Analytics extends Component {
                         to={{
                             pathname: "/view",
                             state: {
-                                route: "tenure"
+                                route: "tenure",
+                                header: "Employees With the Longest Tenure in Each Department"
                             }
                         }}
                     >
@@ -81,7 +84,8 @@ class Analytics extends Component {
                         to={{
                             pathname: "/view",
                             state: {
-                                route: "edlevel"
+                                route: "edlevel",
+                                header: "Employees With Highest Level of Formal Education in Each Department"
                             }
                         }}
                     >
@@ -99,7 +103,8 @@ class Analytics extends Component {
                         to={{
                             pathname: "/view",
                             state: {
-                                route: "longhired"
+                                route: "longhired",
+                                header: "Employees With 10 Highest Salaries Employed For At Least 5 Years"
                             }
                         }}
                     >
@@ -117,7 +122,8 @@ class Analytics extends Component {
                         to={{
                             pathname: "/view",
                             state: {
-                                route: "gensal"
+                                route: "gensal",
+                                header: "Employees With Highest Salaries Among Male and Female Workers"
                             }
                         }}
                     >
@@ -135,7 +141,8 @@ class Analytics extends Component {
                         to={{
                             pathname: "/view",
                             state: {
-                                route: "desbonus"
+                                route: "desbonus",
+                                header: "Workers Employed for At Least 5 Years Who Have No Bonus"
                             }
                         }}
                     >
@@ -153,7 +160,46 @@ class Analytics extends Component {
                         to={{
                             pathname: "/view",
                             state: {
-                                route: "lowersal"
+                                route: "lowersal",
+                                header: "Employees Earning Lower Salary Than the Average Salary in Their Department"
+                            }
+                        }}
+                    >
+                        View
+                    </Button>
+                </div>
+                <div className='employ'>
+                    <h className="underpaid">
+                        View employees with at least 5 years of formal education who earn less than 60,000
+                    </h>
+                    <Button
+                        component={Link}
+                        variant="contained"
+                        color="primary"
+                        to={{
+                            pathname: "/view",
+                            state: {
+                                route: "underpaid",
+                                header: "Employees With At Least 5 Years of Formal Education Earning Less Than 60,000"
+                            }
+                        }}
+                    >
+                        View
+                    </Button>
+                </div>
+                <div className='employ'>
+                    <h className="rich-young">
+                        View employees younger than 30 who earn more than 80,000
+                    </h>
+                    <Button
+                        component={Link}
+                        variant="contained"
+                        color="primary"
+                        to={{
+                            pathname: "/view",
+                            state: {
+                                route: "richyoung",
+                                header: "Employees Younger than 30 Who Earn Over 80,000"
                             }
                         }}
                     >

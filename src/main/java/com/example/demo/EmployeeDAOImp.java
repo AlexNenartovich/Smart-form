@@ -69,6 +69,7 @@ public class EmployeeDAOImp implements EmployeeDAO {
 	
 	public List<Employee> salaryWithTenure() {
 		Session currSession = entityManager.unwrap(Session.class);
+		 @SuppressWarnings("unchecked")
 		  Query<Employee> query = currSession.createSQLQuery("select * from tb_emp where hired < DATE_SUB(CURDATE(), INTERVAL 5 YEAR) order by salary DESC").addEntity(Employee.class);
 		  query.setFirstResult(0);
 		  query.setMaxResults(10);
@@ -95,6 +96,21 @@ public class EmployeeDAOImp implements EmployeeDAO {
 		Session currSession = entityManager.unwrap(Session.class);
 		 @SuppressWarnings("unchecked")
 		  Query<Employee> query = currSession.createSQLQuery("select * from tb_emp E1 where salary < (select AVG(salary) from tb_emp where department = E1.department) order by salary ASC").addEntity(Employee.class);
+		  List<Employee> list = query.list();
+		  return list;
+	}
+	
+	public List<Employee> underpaidEdLevel() {
+		Session currSession = entityManager.unwrap(Session.class);
+		  Query<Employee> query = currSession.createQuery("from Employee where edlevel >= 5 and salary < 60000 order by salary ASC", Employee.class);
+		  List<Employee> list = query.getResultList();
+		  return list;
+	}
+	
+	public List<Employee> richYoung() {
+		Session currSession = entityManager.unwrap(Session.class);
+		 @SuppressWarnings("unchecked")
+		  Query<Employee> query = currSession.createSQLQuery("select * from tb_emp where dob > DATE_SUB(CURDATE(), INTERVAL 30 YEAR) and salary > 80000 order by salary DESC").addEntity(Employee.class);
 		  List<Employee> list = query.list();
 		  return list;
 	}

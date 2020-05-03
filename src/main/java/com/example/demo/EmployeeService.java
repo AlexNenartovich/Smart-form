@@ -15,4 +15,6 @@ public interface EmployeeService {
 	List<Employee> highestGenderSalary();
 	List<Employee> deserveBonus();
 	List<Employee> lowerAveSalary();
+	List<Employee> underpaidEdLevel();
+	List<Employee> richYoung();
 }

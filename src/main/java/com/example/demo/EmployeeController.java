@@ -88,5 +88,15 @@ public class EmployeeController {
 	 public List<Employee> lowerAveSalary() {
 	  return employeeService.lowerAveSalary();
 	 }
+	 
+	 @GetMapping("/underpaid")
+	 public List<Employee> underpaidEdLevel() {
+	  return employeeService.underpaidEdLevel();
+	 }
+	 
+	 @GetMapping("/richyoung")
+	 public List<Employee> richYoung() {
+	  return employeeService.richYoung();
+	 }
 }
 

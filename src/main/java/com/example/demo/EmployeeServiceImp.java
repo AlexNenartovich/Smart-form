@@ -83,5 +83,17 @@ public class EmployeeServiceImp implements EmployeeService {
 	 public List<Employee> lowerAveSalary() {
 		return employeeDao.lowerAveSalary();
 	}
+	
+	@Transactional
+	 @Override
+	 public List<Employee> underpaidEdLevel() {
+		return employeeDao.underpaidEdLevel();
+	}
+	
+	@Transactional
+	 @Override
+	 public List<Employee> richYoung() {
+		return employeeDao.richYoung();
+	}
 }
 
