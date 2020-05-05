@@ -1,5 +1,7 @@
 University Name: San Jose State University
+
 Course: Enterprise Software - CMPE 172 Spring 2020
+
 Team Members: Joshua Gendein, Nicholas Hsiao, Aliaksandr Nenartovich
 
 Project Description and Introduction: This application is designed to be used by authenticated and authorized HR managers of large companies in order to store, manage and modify the records of employees currently working in the company. Application enables HR managers to view all employees currently in the database, add new employee records, search for specific employees as well as update or delete existing employee records from the database. Additionally, this application provides a basic analytics functionality which allows HR managers to see certain trends and patterns within the company. Sample analytical data available in the application includes displaying employees with highest salaries in each department, highest salaries among male and female workers, employees with lower salaries than the average salary in their department etc.
