@@ -38,7 +38,7 @@ public class Employee {
 	 private String gender;
 	@Override
 	 public String toString() {
-	  return "Employee [id= " + id + ", first name=" + name + " last name=" + lastName + ", department=" + department + ", dob=" + dob + ", gender="
+	  return "Employee [id= " + id + ", first name=" + name + " last name=" + lastName + ", gender="
 	    + gender + "]";
 	 }
 	public Integer getId() {

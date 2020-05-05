@@ -19,18 +19,20 @@ public class EmployeeDAOImp implements EmployeeDAO {
 	  List<Employee> list = query.getResultList();
 	  return list;
 	}
+	
 	 @Override
 	 public Employee get(int id) {
 	  Session currSession = entityManager.unwrap(Session.class);
 	  Employee emp = currSession.get(Employee.class, id);
 	  return emp;
 	 }
+	 
 	@Override
-	 public void save(Employee employee) {
-	  
+	 public void save(Employee employee) {	  
 	  Session currSession = entityManager.unwrap(Session.class);
 	  currSession.saveOrUpdate(employee);
 	}
+	
 	@Override
 	 public void delete(int id) {
 	  Session currSession = entityManager.unwrap(Session.class);
