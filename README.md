@@ -36,6 +36,6 @@ Open your browser, go to localhost:8085 , you should see the application Home pa
 The class diagram of the system is presented below:
 
 ![Image of ClassDiagram]
-(https://github.com/AlexNenartovich/Smart-form.git/Images/ClassDiagram.png)
+(/Images/ClassDiagram.png)
 
 If you have any question please do not hesitate to contact us at: aliaksandr.nenartovich@sjsu.edu
