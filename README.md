@@ -33,4 +33,9 @@ docker run -p 8085:8085 smart-form
 
 Open your browser, go to localhost:8085 , you should see the application Home page there. 
 
+The class diagram of the system is presented below:
+
+![Image of ClassDiagram]
+(https://github.com/AlexNenartovich/Smart-form.git/Images/ClassDiagram.png)
+
 If you have any question please do not hesitate to contact us at: aliaksandr.nenartovich@sjsu.edu
