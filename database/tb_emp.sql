@@ -1,0 +1,11 @@
+CREATE TABLE `tb_emp` (`id` int(11) NOT NULL AUTO_INCREMENT, 
+	`name` varchar(255) DEFAULT NULL,
+	`last_name` varchar(255) DEFAULT NULL,
+	`gender` varchar(255) DEFAULT NULL, 
+	`department` varchar(255) DEFAULT NULL, 
+	`hired` date DEFAULT NULL, 
+	'salary' INT(11),
+	'bonus' INT(11),
+	'edlevel' INT(11),
+	`dob` date DEFAULT NULL, 
+	PRIMARY KEY (`id`));
