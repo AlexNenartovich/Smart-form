@@ -8,9 +8,9 @@ Project Description and Introduction: This application is designed to be used by
 
 Sample demo screenshots of SmartForm are presented below:
 
-![](Images/form)
+![](Images/form.png)
 
-![](Images/table)
+![](Images/table.png)
 
 Prerequisites for set up:
 For using the application on public URL simply go to: http://smartform-env.eba-emp4nwip.us-east-1.elasticbeanstalk.com/
