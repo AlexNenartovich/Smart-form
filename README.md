@@ -37,4 +37,8 @@ The class diagram of the system is presented below:
 
 ![](Images/ClassDiagram.png)
 
+The sequence diagram of the system is presented as follows:
+
+![](Images/Sequence_Diagram.png)
+
 If you have any question please do not hesitate to contact us at: aliaksandr.nenartovich@sjsu.edu
