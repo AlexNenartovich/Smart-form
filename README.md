@@ -97,19 +97,33 @@ SELECT * FROM tb_emp WHERE dob > DATE_SUB(CURDATE(), INTERVAL 30 YEAR)
 The following mid tier APIs were used in this project:
 
 List<Employee> get();
+
 Employee get(int id);
+
 void save(Employee employee);
+
 void delete(int id);
+
 List<Employee> highestSalaryByDep();
+
 List<Employee> highestBonusByDep();
+
 List<Employee> longestTenure();
+
 List<Employee> highestEdLevelByDep();
+
 List<Employee> salaryWithTenure();
+
 List<Employee> highestGenderSalary();
+
 List<Employee> deserveBonus();
+
 List<Employee> lowerAveSalary();
+
 List<Employee> underpaidEdLevel();
+
 List<Employee> richYoung();
+
 
 In order to transport data to UI, the project uses the following mechanism:
 
