@@ -59,41 +59,41 @@ Open your browser, go to localhost:8085 , you should see the application Home pa
 
 `SELECT * FROM tb_emp;`
 
-`SELECT * from tb_emp WHERE (department, salary) in 
-		  	                (SELECT department, MAX(salary) FROM tb_emp 
-		  	                        GROUP BY department) ORDER BY salary DESC;`
+`SELECT * from tb_emp WHERE (department, salary) in` 
+		  	                `(SELECT department, MAX(salary) FROM tb_emp`
+		  	                        `GROUP BY department) ORDER BY salary DESC;`
 
-`SELECT * FROM tb_emp WHERE (department, bonus) in  
-		  	                (SELECT department, MAX(bonus) FROM tb_emp
-		  	                         GROUP BY department) ORDER BY bonus DESC;`
+`SELECT * FROM tb_emp WHERE (department, bonus) in` 
+		  	                `(SELECT department, MAX(bonus) FROM tb_emp`
+		  	                         `GROUP BY department) ORDER BY bonus DESC;`
 
-`SELECT * FROM tb_emp WHERE (department, hired) in 
-	  	                    (SELECT department, MIN(hired) FROM tb_emp
-	  	                             GROUP BY department) ORDER BY hired ASC;`
+`SELECT * FROM tb_emp WHERE (department, hired) in` 
+	  	                    `(SELECT department, MIN(hired) FROM tb_emp`
+	  	                             `GROUP BY department) ORDER BY hired ASC;`
 
-`SELECT * FROM tb_emp WHERE (department, edlevel) in
-		  	                (SELECT department, MAX(edlevel) FROM tb_emp
-		  	                         GROUP BY department) ORDER BY edlevel DESC;`
+`SELECT * FROM tb_emp WHERE (department, edlevel) in`
+		  	                `(SELECT department, MAX(edlevel) FROM tb_emp`
+		  	                         `GROUP BY department) ORDER BY edlevel DESC;`
 
 `SELECT * FROM tb_emp WHERE hired < DATE_SUB(CURDATE(), INTERVAL 5 YEAR) ORDER BY salary DESC;`
 
-`SELECT * FROM tb_emp WHERE (gender, salary) in
-		  	                (SELECT gender, MAX(salary) FROM tb_emp
-		  	                         GROUP BY gender) ORDER BY salary DESC;`
+`SELECT * FROM tb_emp WHERE (gender, salary) in`
+		  	                `(SELECT gender, MAX(salary) FROM tb_emp`
+		  	                         `GROUP BY gender) ORDER BY salary DESC;`
 
-`SELECT * FROM tb_emp WHERE hired < DATE_SUB(CURDATE(), INTERVAL 5 YEAR) 
-		  	                                    AND bonus = 0 
-		  	                                    ORDER BY hired ASC;`
+`SELECT * FROM tb_emp WHERE hired < DATE_SUB(CURDATE(), INTERVAL 5 YEAR)` 
+		  	                                    `AND bonus = 0` 
+		  	                                    `ORDER BY hired ASC;`
 
-`SELECT * FROM tb_emp E1 WHERE salary < 
-						(select AVG(salary) FROM tb_emp WHERE department = E1.department)
-		  	                                                  ORDER BY salary ASC;`
+`SELECT * FROM tb_emp E1 WHERE salary <` 
+						`(select AVG(salary) FROM tb_emp WHERE department = E1.department)`
+		  	                                                  `ORDER BY salary ASC;`
 
 `SELECT * FROM tb_emp WHERE edlevel >= 5 AND salary < 60000 ORDER BY salary ASC;`
 
-`SELECT * FROM tb_emp WHERE dob > DATE_SUB(CURDATE(), INTERVAL 30 YEAR)
-		  	                                         AND salary > 80000
-		  	                                         ORDER BY salary DESC;`
+`SELECT * FROM tb_emp WHERE dob > DATE_SUB(CURDATE(), INTERVAL 30 YEAR)`
+		  	                                         `AND salary > 80000`
+		  	                                         `ORDER BY salary DESC;`
 
 
 **The following mid tier APIs were used in this project:**
