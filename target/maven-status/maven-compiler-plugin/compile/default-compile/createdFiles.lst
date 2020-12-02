@@ -1,8 +1,7 @@
-com/example/demo/EmployeeDAOImp.class
-com/example/demo/EmployeeServiceImp.class
-com/example/demo/EmployeeService.class
 com/example/demo/EmployeeController.class
+com/example/demo/EmployeeDAOImp.class
 com/example/demo/Employee.class
-com/example/demo/AmazonDynamoDBSample.class
 com/example/demo/EmployeeDAO.class
+com/example/demo/EmployeeServiceImp.class
 com/example/demo/SmartFormApplication.class
+com/example/demo/EmployeeService.class
